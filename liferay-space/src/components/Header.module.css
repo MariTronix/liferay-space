@@ -1,0 +1,68 @@
+.header hr{
+    border: none;
+    border-top: 1px solid var(--secundary-L5);
+}
+.header img{
+    width: 6rem;
+}
+
+
+.upperHeader p, span{
+    color: var(--secundary-default);
+    font-size: 0.75rem;
+}
+
+.upperHeader span{
+    margin-left: 0.75rem;
+}
+
+.upperHeader{
+    margin: 0 1rem;
+    padding-bottom: 0.275rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.upperHeader div{
+    display: flex;
+    align-items: center;
+}
+
+.upperHeader button{
+    font-size: 0.75rem;
+    margin: 0 0.25rem;
+    background-color: var(--white);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+    align-self: flex-end;
+}
+
+.upperHeader button:hover{
+    background-color: var(--indigo-D2);
+    color: var(--white);
+    
+}
+
+.upperHeader span{
+    color: var(--cyan-default);
+    
+}
+
+
+
+
+
+.lowerHeader{
+    margin-left: 0.7rem;
+    padding-top: 0.275rem;
+    display: flex;
+    align-items: flex-end;
+}
+
+.lowerHeader strong{
+    font-size: 1rem;
+}
+
