@@ -1,0 +1,74 @@
+.testimonialsSection {
+    background-color: #f2f4f5;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 20px 0;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #111;
+  }
+  
+  .subtitle {
+    color: #888;
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  
+  .cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 260px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 10px;
+  }
+  
+  .small {
+    font-size: 0.85rem;
+    color: #999;
+  }
+  
+  .icon {
+    color: #1da1f2;
+    font-size: 1.2rem;
+  }
+  
+  .stars {
+    color: #ffcc00;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  .comment {
+    font-size: 0.95rem;
+    text-align: left;
+    color: #222;
+    line-height: 1.5;
+    font-weight: 500;
+  }

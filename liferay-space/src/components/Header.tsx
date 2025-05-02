@@ -1,5 +1,5 @@
 import styles from './Header.module.css';
-import liferaLogo from '../assets/liferay-logo.png';
+import liferayLogo from '../assets/imgLogos/liferay-logo.png';
 
 
 export function Header(){
@@ -22,7 +22,7 @@ export function Header(){
             </div>
             <hr />
             <div className={styles.lowerHeader}>
-                <img src={liferaLogo} alt="Logotipo da liferay" />
+                <img src={liferayLogo} alt="Logotipo da liferay" />
                 
                 <strong>Spaces</strong>
             </div>

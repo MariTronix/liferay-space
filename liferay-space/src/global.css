@@ -35,6 +35,12 @@
   --indigo-L1: #4256ff;
 }
 
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('/liferay-space/src/assets/Source_Sans_Pro_Full\ Pack/Source_Sans_Pro_Full') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
 
 *{
   margin: 0;
@@ -48,7 +54,8 @@ body{
 }
 
 body, input, textarea, button{
-  font-family: helvetica;
+  font-family: 'Source Sans Pro', monospace;
   font-weight: 400;
   font-size: 1rem;
 }
+
