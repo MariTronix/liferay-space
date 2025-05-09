@@ -1,0 +1,80 @@
+.room{
+    justify-items: center;
+    gap: 0.25rem;
+    position: relative;
+}
+
+.room img {
+    height: 10rem;
+    width: 17rem;
+    border-radius: 5px;
+}
+
+.room span{
+    background: transparent;
+    color: var(--cyan-default);
+    line-height: 0;
+}
+
+.room span::before{
+    margin: 0 0.25rem;
+}
+
+.room p{
+    font-weight: bold;
+    color: var(--secundary-default);
+    text-align: justify;
+}
+
+
+
+
+.roomDivSuport {
+    border: none;
+    width: 17rem;
+    margin: 0.5rem 0;
+    padding: 0;
+    text-align: left;
+}
+
+
+
+.roomDescription {
+    border: none;
+    width: 17rem;
+    margin: 0.25rem 0;
+    padding: 0;
+}
+
+
+
+
+.roomDivButtons{
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 17rem;
+    border: none;
+    margin: 0;
+}
+.roomReserve {
+    background-color: var(--blue-primary);
+    color: var(--white);
+    font-weight: bold;
+    font-size: 0.875rem;
+    height: 1.475rem;
+    width: 4.375rem;
+    text-align: center;
+    padding: 0;
+}
+.roomDetails {
+    color: var(--cyan-default);
+    height: 1.475rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0;
+}

@@ -1,0 +1,18 @@
+.bodySpaces{
+    display: grid;
+    grid-template-columns: 22rem 22rem 22rem;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3.5rem 8rem;
+    
+}
+
+.bodySpaces > div{
+    height: 28rem;
+    width: 22rem;
+    padding: 1rem;
+    border-radius: 1.875rem;
+    margin-bottom: 4rem;
+    align-items: center;
+    border: solid 1px var(--black);
+}

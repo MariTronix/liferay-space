@@ -1,13 +1,14 @@
 :root {
   /* Most important */
   --white: #fff;
-  --blue-Primary: #0b5fff;
-  --cyan-Default: #2eb7ff;
-  --indigo-D2: #0011a8;
-  --indigo-D4: #000742;
-  --indigo-D5: #000728;
+  --black: #000;
+  --blue-primary: #0b5fff;
+  --cyan-default: #2eb7ff;
+  --indigo-d2: #0011a8;
+  --indigo-d4: #000742;
+  --indigo-d5: #000728;
   --secundary-default: #6b6c7e;
-  --dark-Default: #272833;
+  --dark-default: #272833;
 
 
   
@@ -28,11 +29,11 @@
   --secundary-d1: #545563;
   --secundary-d2: #3d3e48;
 
-
   --indigo-L4: #dbdfff;
   --indigo-L3: #a8b1ff;
   --indigo-L2: #7785ff;
   --indigo-L1: #4256ff;
+  --indigo-default: #0f28ff;
 }
 
 @font-face {
@@ -40,6 +41,7 @@
   src: url('/liferay-space/src/assets/Source_Sans_Pro_Full\ Pack/Source_Sans_Pro_Full') format('woff2');
   font-weight: 400;
   font-style: normal;
+  font-size: 1rem;
 }
 
 *{
@@ -51,11 +53,5 @@
 body{
   background-color: var(--white);
   -webkit-font-smoothing: antialiased;
-}
-
-body, input, textarea, button{
-  font-family: 'Source Sans Pro', monospace;
-  font-weight: 400;
-  font-size: 1rem;
 }
 

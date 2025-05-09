@@ -31,7 +31,7 @@
     align-items: center;
 }
 
-.upperHeader button{
+button{
     font-size: 1rem;
     margin: 0 0.25rem;
     background-color: var(--white);
@@ -44,7 +44,7 @@
 }
 
 .upperHeader button:hover{
-    background-color: var(--indigo-D2);
+    background-color: var(--indigo-d2);
     color: var(--white);
     
 }
@@ -64,3 +64,8 @@
     font-size: 1rem;
 }
 
+.lowerHeader button{
+    margin: 0;
+    padding: 0;
+    border-radius: 1px;
+}
