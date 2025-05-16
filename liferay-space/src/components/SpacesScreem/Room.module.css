@@ -5,8 +5,8 @@
 }
 
 .room img {
-    height: 17rem;
-    width: 35.5rem;
+    height: 22rem;
+    width: 40rem;
     object-fit: cover;
 }
 
@@ -61,10 +61,7 @@
     border: none;
     margin: 0;
 }
-.roomDivButtons button:hover{
-    outline: 3px solid var(--blue-l2);
-    outline-offset: 3px;
-}
+
 
 
 .roomReserve {
@@ -82,13 +79,13 @@
     gap: 0 0.7rem;
 }
 .roomReserve span{
-  display: inline-flex;
-  color: var(--blue-d1);
-  transition: transform 0.1s ease;
-  font-size: 1.25rem;
+    display: inline-flex;
+    color: var(--blue-d1);
+    transition: transform 0.1s ease;
+    font-size: 1.25rem;
 }
 .roomReserve:hover span{
-  transform: translateX(5px);
+    transform: translateX(5px);
 }
 
 
@@ -109,5 +106,9 @@
     background: transparent;
     color: var(--white);
     line-height: 0;
+}
+.roomDetails:hover{
+    outline: 3px solid var(--blue-l2);
+    outline-offset: 3px;
 }
 

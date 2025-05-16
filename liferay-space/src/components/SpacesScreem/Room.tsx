@@ -16,7 +16,7 @@ export const Room = ({img, name, description, capacity}: RoomProps) => {
         <div className={styles.room}>
           <img  src={img} alt="Foto da Sala" />
           <div className={styles.roomDivSuport}>
-          <h3>{name}</h3>
+          <h1>{name}</h1>
           </div>
           <p className={styles.roomDescription}>{description}</p>
           <div className={styles.roomDivSuport}>
