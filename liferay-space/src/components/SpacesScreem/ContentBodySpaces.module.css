@@ -1,0 +1,16 @@
+.contentBodySpaces{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.contentBodySpaces > div{
+    height: 34rem;
+    width: 35rem;
+    border-radius: 1.875rem;
+    margin: 4rem;
+    background-color: var(--blue-l4);
+    align-items: center;
+}

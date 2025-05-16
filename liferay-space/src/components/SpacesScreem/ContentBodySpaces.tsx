@@ -1,4 +1,4 @@
-import styles from './BodySpaces.module.css';
+import styles from './ContentBodySpaces.module.css';
 import { Room } from './Room';
 import auditorio01 from '../../assets/imgSalas/auditorio1.jpg'
 import arcoIris from '../../assets/imgSalas/salaArcoIris.jpg'
@@ -10,7 +10,7 @@ import pangeia from '../../assets/imgSalas/salaPangeia1.jpg'
 import varanda from '../../assets/imgSalas/varanda3.jpg'
 
 
-export const BodySpaces = () =>{
+export const ContentBodySpaces = () =>{
   const Rooms = [
     {
       id:1,
@@ -78,7 +78,7 @@ export const BodySpaces = () =>{
     }
   ];
     return(
-        <div className={styles.bodySpaces}>
+        <div className={styles.contentBodySpaces}>
             {Rooms.map(rooms =>
             {
               return(

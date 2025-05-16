@@ -1,6 +1,7 @@
 import styles from './Room.module.css'
 import {FaAddressBook} from 'react-icons/fa'
 import {FaFolderOpen} from 'react-icons/fa'
+import {FaLongArrowAltRight} from 'react-icons/fa';
 
 
 interface RoomProps {
@@ -27,9 +28,8 @@ export const Room = ({img, name, description, capacity}: RoomProps) => {
           {/*Lembrete:  colocar recursos!!!!! */}
           <div className={styles.roomDivButtons}>
             <button className={styles.roomDetails}>Detalhes <span><FaFolderOpen/></span></button>
-            <button className={styles.roomReserve}>Reservar</button>
+            <button className={styles.roomReserve}>Reservar <span><FaLongArrowAltRight/></span> </button>
           </div>
-        
         </div>
       );
     

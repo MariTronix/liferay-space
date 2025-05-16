@@ -1,13 +1,13 @@
 .room{
     justify-items: center;
-    gap: 0.25rem;
     position: relative;
+    overflow: hidden;
 }
 
 .room img {
-    height: 10rem;
-    width: 17rem;
-    border-radius: 5px;
+    height: 17rem;
+    width: 35.5rem;
+    object-fit: cover;
 }
 
 .room span{
@@ -22,8 +22,9 @@
 
 .room p{
     font-weight: bold;
-    color: var(--secundary-default);
+    color: var(--blue);
     text-align: justify;
+    width: 25rem;
 }
 
 
@@ -31,7 +32,7 @@
 
 .roomDivSuport {
     border: none;
-    width: 17rem;
+    width: 25rem;
     margin: 0.5rem 0;
     padding: 0;
     text-align: left;
@@ -56,25 +57,57 @@
     transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
-    width: 17rem;
+    width: 25rem;
     border: none;
     margin: 0;
 }
+.roomDivButtons button:hover{
+    outline: 3px solid var(--blue-l2);
+    outline-offset: 3px;
+}
+
+
 .roomReserve {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: var(--blue-d1);
+    font-weight: bold;
+    font-size: 1.25rem;
+    height: 1.475rem;
+    width: 7rem;
+    text-align: center;
+    padding: 0;
+    gap: 0 0.7rem;
+}
+.roomReserve span{
+  display: inline-flex;
+  color: var(--blue-d1);
+  transition: transform 0.1s ease;
+  font-size: 1.25rem;
+}
+.roomReserve:hover span{
+  transform: translateX(5px);
+}
+
+
+.roomDetails {
     background-color: var(--blue-primary);
     color: var(--white);
-    font-weight: bold;
-    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0 0.5rem;
     height: 1.475rem;
-    width: 4.375rem;
-    text-align: center;
-    padding: 0;
-}
-.roomDetails {
-    color: var(--cyan-default);
-    height: 1.475rem;
+    width: 5.5rem;
     font-size: 0.875rem;
+    margin: 0;
     font-weight: bold;
-    text-align: center;
-    padding: 0;
+    padding: 0.15rem 0.25rem;
 }
+.roomDetails span {
+    background: transparent;
+    color: var(--white);
+    line-height: 0;
+}
+

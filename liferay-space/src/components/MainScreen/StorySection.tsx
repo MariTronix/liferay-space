@@ -7,17 +7,12 @@ export const StorySection = () => {
       <div className={styles.storySectionContent}>
         <div className={styles.storySectionTextBlock}>
           <h1 className={styles.storySectionTitle}>
-            De mesas <span className={styles.storySectionSimples}> simples</span> a  <span className={styles.storySectionIdeias}> <h1> GRANDES IDEIAS </h1> </span>
+            De mesas <span className={styles.storySectionSimples}>simples</span> a <span className={styles.storySectionIdeias}>GRANDES IDEIAS </span>
           </h1>
           <p className={styles.storySectionParagraph}>
-            A Liferay começou com um grupo de jovens empreendedores determinados a criar tecnologia com propósito.
-            Em vez de um escritório tradicional, as primeiras reuniões aconteceram em mesas de piquenique doadas por
-            uma igreja — símbolo de um começo simples, colaborativo e cheio de intenção.
-          </p>
-          <p className={styles.storySectionParagraph}>
-            Hoje, com presença global e uma plataforma reconhecida, essa essência continua viva. No auditório da sede
-            em Recife, mesas iguais às daquela época foram escolhidas para lembrar diariamente das nossas raízes e do
-            compromisso com impacto positivo.
+            A Liferay começou com jovens empreendedores criando tecnologia com propósito. 
+            Hoje, com presença global, mantém sua essência ao usar mesas semelhantes às do início na sede de Recife, 
+            simbolizando suas raízes e compromisso com impacto positivo.
           </p>
         </div>
         <div className={styles.storySectionImageWrapper}>
