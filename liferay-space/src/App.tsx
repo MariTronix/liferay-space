@@ -9,6 +9,9 @@ import styles from './App.module.css';
 
 import './global.css';
 
+import { register } from 'swiper/element/bundle';
+register();
+
 export function App() {
 
   return (

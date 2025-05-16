@@ -1,6 +1,6 @@
 .bodySpace{
     display: flex;
     flex-direction: column;
-    background: linear-gradient(var(--indigo-d4), var(--blue-d3)10%, var(--blue-d1), var(--cyan-default)18%, var(--white)60%);
+    background: linear-gradient(var(--blue-d1)10%, var(--cyan-default)18%, var(--white)65%);
     
 }

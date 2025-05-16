@@ -2,17 +2,14 @@
     justify-items: center;
     position: relative;
     overflow: hidden;
+    color: var(--blue-d3);
 }
 
-.room img {
-    height: 22rem;
-    width: 40rem;
-    object-fit: cover;
-}
+
 
 .room span{
     background: transparent;
-    color: var(--cyan-default);
+    color: var(--blue-d3);
     line-height: 0;
 }
 
@@ -22,10 +19,13 @@
 
 .room p{
     font-weight: bold;
-    color: var(--blue);
     text-align: justify;
     width: 25rem;
 }
+.room h1{
+    font-size: 2.5rem;
+}
+
 
 
 
@@ -39,13 +39,6 @@
 }
 
 
-
-.roomDescription {
-    border: none;
-    width: 17rem;
-    margin: 0.25rem 0;
-    padding: 0;
-}
 
 
 
@@ -85,30 +78,17 @@
     font-size: 1.25rem;
 }
 .roomReserve:hover span{
-    transform: translateX(5px);
+    transform: translateX(10px);
 }
 
 
-.roomDetails {
-    background-color: var(--blue-primary);
-    color: var(--white);
-    display: inline-flex;
+.swiperSlide {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 0 0.5rem;
-    height: 1.475rem;
-    width: 5.5rem;
-    font-size: 0.875rem;
-    margin: 0;
-    font-weight: bold;
-    padding: 0.15rem 0.25rem;
 }
-.roomDetails span {
-    background: transparent;
-    color: var(--white);
-    line-height: 0;
+.swiperSlide img {
+    height: 22rem;
+    width: 40rem;
+    object-fit: cover;
 }
-.roomDetails:hover{
-    outline: 3px solid var(--blue-l2);
-    outline-offset: 3px;
-}
-
