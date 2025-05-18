@@ -1,6 +1,7 @@
 import styles from './Header.module.css';
 import liferayLogo from '../assets/imgLogos/liferay-logo.png';
 import { useNavigate } from 'react-router-dom'; //módulo para navegação do react-dom
+import Index from '../pages/Index'
 
 
 export function Header(){
@@ -24,8 +25,11 @@ export function Header(){
                 <div>
                     <button onClick={spacesPage}>Espaços</button> 
                     <button>Reservar</button>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2eb7ff" viewBox="0 0 256 256"><path d="M208,76H180V56A52,52,0,0,0,76,56V76H48A20,20,0,0,0,28,96V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V96A20,20,0,0,0,208,76ZM100,56a28,28,0,0,1,56,0V76H100ZM204,204H52V100H204Z"></path></svg>
-                    
+                    <button onClick={Index}>
+                        Admin
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2eb7ff" viewBox="0 0 256 256"><path d="M208,76H180V56A52,52,0,0,0,76,56V76H48A20,20,0,0,0,28,96V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V96A20,20,0,0,0,208,76ZM100,56a28,28,0,0,1,56,0V76H100ZM204,204H52V100H204Z"></path></svg>
+                    </button>
+                
                 </div>
             </div>
             <hr />
