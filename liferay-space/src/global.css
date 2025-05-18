@@ -12,13 +12,13 @@
 
 
   
-  --blue-L4: #d6e4ff;
-  --blue-L3: #a3c3ff;
-  --blue-L2: #70a1ff;
-  --blue-L1: #3d80ff;
-  --blue-D1: #004ad6;
-  --blue-D2: #0038a3;
-  --blue-D3: #002770;
+  --blue-l4: #d6e4ff;
+  --blue-l3: #a3c3ff;
+  --blue-l2: #70a1ff;
+  --blue-l1: #3d80ff;
+  --blue-d1: #004ad6;
+  --blue-d2: #0038a3;
+  --blue-d3: #002770;
 
 
   --secundary-L5: #d4d4d6;
@@ -53,4 +53,3 @@
 body{
   background-color: var(--white);
   -webkit-font-smoothing: antialiased;
-}

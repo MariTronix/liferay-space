@@ -1,18 +1,15 @@
 .room{
     justify-items: center;
-    gap: 0.25rem;
     position: relative;
+    overflow: hidden;
+    color: var(--blue-d3);
 }
 
-.room img {
-    height: 10rem;
-    width: 17rem;
-    border-radius: 5px;
-}
+
 
 .room span{
     background: transparent;
-    color: var(--cyan-default);
+    color: var(--blue-d3);
     line-height: 0;
 }
 
@@ -22,29 +19,26 @@
 
 .room p{
     font-weight: bold;
-    color: var(--secundary-default);
     text-align: justify;
+    width: 25rem;
 }
+.room h1{
+    font-size: 2.5rem;
+}
+
 
 
 
 
 .roomDivSuport {
     border: none;
-    width: 17rem;
+    width: 25rem;
     margin: 0.5rem 0;
     padding: 0;
     text-align: left;
 }
 
 
-
-.roomDescription {
-    border: none;
-    width: 17rem;
-    margin: 0.25rem 0;
-    padding: 0;
-}
 
 
 
@@ -56,25 +50,45 @@
     transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
-    width: 17rem;
+    width: 25rem;
     border: none;
     margin: 0;
 }
+
+
+
 .roomReserve {
-    background-color: var(--blue-primary);
-    color: var(--white);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: var(--blue-d1);
     font-weight: bold;
-    font-size: 0.875rem;
+    font-size: 1.25rem;
     height: 1.475rem;
-    width: 4.375rem;
+    width: 7rem;
     text-align: center;
     padding: 0;
+    gap: 0 0.7rem;
 }
-.roomDetails {
-    color: var(--cyan-default);
-    height: 1.475rem;
-    font-size: 0.875rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 0;
+.roomReserve span{
+    display: inline-flex;
+    color: var(--blue-d1);
+    transition: transform 0.1s ease;
+    font-size: 1.25rem;
+}
+.roomReserve:hover span{
+    transform: translateX(10px);
+}
+
+
+.swiperSlide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.swiperSlide img {
+    height: 22rem;
+    width: 40rem;
+    object-fit: cover;
 }

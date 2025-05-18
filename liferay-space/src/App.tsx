@@ -10,6 +10,9 @@ import Reports from './pages/Reports.tsx';
 import NotFound from './pages/NotFound.tsx';
 import './global.css';
 
+import { register } from 'swiper/element/bundle';
+register();
+
 export function App() {
 
   return (

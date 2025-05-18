@@ -7,7 +7,7 @@ export const SubTitle = () => {
             <h2>Nossos Espaços</h2>
             </div>
             <div>
-            <p>Conheça os diferentes ambientes disponíveis para os seus eventos</p>
+            <p>Conheça o local onde se respira e vive tecnologia</p>
             </div>
 
         </div>

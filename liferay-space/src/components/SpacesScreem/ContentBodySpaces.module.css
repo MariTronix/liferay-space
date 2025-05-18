@@ -1,0 +1,21 @@
+.contentBodySpaces{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.contentBodySpaces > div{
+    height: 40rem;
+    width: 32rem;
+    border-radius: 8px;
+    margin: 2rem;
+    background-color: var(--blue-l4);
+    align-items: center;
+}
+.contentBodySpaces > div:hover{
+    outline: 3px solid var(--blue-l2);
+    outline-offset: 3px;
+    background: linear-gradient(45deg, var(--blue-l4) 20%, var(--blue-l3) );
+}

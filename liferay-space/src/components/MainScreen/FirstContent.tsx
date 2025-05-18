@@ -2,8 +2,14 @@ import styles from './FirstContent.module.css';
 import img1 from '../../assets/imgSalas/auditorio1.jpg';
 import img2 from '../../assets/imgSalas/salaPangeia2.jpg';
 import img3 from '../../assets/imgSalas/salaMontanha.jpg';
+import {FaLongArrowAltRight} from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom'; //módulo para navegação do react-dom
 
 export const FirstContent = () => {
+  const navigate = useNavigate();
+  const spacesPage = () => {
+      navigate('./SpacesPage.tsx'); // Rota interna
+    };
   return (
     <section className={styles.firstContent}>
       <div className={styles.firstContentTextContainer}>
@@ -12,8 +18,11 @@ export const FirstContent = () => {
           Conheça o maior escritório da Liferay no mundo, no coração do Recife Antigo.
         </h1>
         <p className={styles.firstContentDescription}>
-          Mais do que um espaço de trabalho, é um ambiente pensado para inspirar conexões. Com salas modernas, confortáveis e bem equipadas, é o lugar ideal para eventos, encontros e iniciativas que fortalecem a comunidade.
+          Mais que um espaço de trabalho, é um ambiente inspirador com salas modernas e confortáveis, ideal para eventos e conexões comunitárias.        
         </p>
+        <button onClick={spacesPage}>
+          Conheça nossos espaços <span><FaLongArrowAltRight /></span>
+        </button>
       </div>
       <div className={styles.firstContentImagesGrid}>
         <div className={styles.firstContentImageWrapper1}>
