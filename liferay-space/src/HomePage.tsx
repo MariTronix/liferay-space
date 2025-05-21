@@ -4,7 +4,7 @@ import {InfoSection} from './components/MainScreen/InfoSection';
 import {Testimonials} from './components/MainScreen/Testimonials';
 import {WhySection} from './components/MainScreen/WhySection';
 import { Header } from './components/Header';
-import { Footer } from 'react-day-picker';
+import { Footer } from './components/Footer';
 
 export const Home = () => {
   return (

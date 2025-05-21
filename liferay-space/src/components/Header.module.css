@@ -17,9 +17,6 @@
     border: none;
     border-top: 1px solid var(--secundary-L5);
 }
-.header img{
-    width: 6rem;
-}
 
 .upperHeader p, span{
     color: var(--secundary-default);
@@ -35,7 +32,6 @@
 
 .upperHeader{
     margin-top: 0.3rem;
-    margin: 0.3rem 1rem 0 1rem;
     padding-bottom: 0.275rem;
     display: flex;
     justify-content: space-between;
@@ -79,7 +75,7 @@
 .lowerHeader button{
     width: 10rem;
     height: 3.25rem;
-    margin: 0;
+    margin-left: -0.5rem;
     padding: 0;
     border-radius: 1px;
 }
