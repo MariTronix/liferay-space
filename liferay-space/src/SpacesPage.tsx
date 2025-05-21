@@ -4,12 +4,12 @@ import {WhySection} from './components/MainScreen/WhySection.tsx';
 import { Header } from './components/Header.tsx';
 import { Footer } from './components/Footer.tsx';
 
+
 export const SpacesPage = () =>{
     return (
         <>
             <Header/>
-            <SubTitle />
-            <BodySpaces />
+            <BodySpacesPage />
             <Testimonials />
             <WhySection />
             <Footer/>

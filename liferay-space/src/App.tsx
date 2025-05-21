@@ -20,7 +20,7 @@ export function App() {
     <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/SpacesPage.tsx" element={<SpacesPage />} />
-        <Route path="/Admin" element={<Index/>}> </Route>
+        <Route path="/Admin" element={<Index/>} />
         <Route path="/requests" element={<Requests />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/reports" element={<Reports />} />

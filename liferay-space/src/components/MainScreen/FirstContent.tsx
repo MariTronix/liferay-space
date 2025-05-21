@@ -15,10 +15,11 @@ export const FirstContent = () => {
       <div className={styles.firstContentTextContainer}>
         <span className={styles.firstContentTag}>Nosso Projeto</span>
         <h1 className={styles.firstContentTitle}>
-          Conheça o maior escritório da Liferay no mundo, no coração do Recife Antigo.
+          Conheça o maior escritório da Liferay no mundo, no coração do Recife Antigo
         </h1>
         <p className={styles.firstContentDescription}>
-          Mais que um espaço de trabalho, é um ambiente inspirador com salas modernas e confortáveis, ideal para eventos e conexões comunitárias.        
+          Mais que um espaço de trabalho, é um ambiente inspirador com salas modernas e confortáveis, 
+          ideal para eventos e conexões comunitárias       
         </p>
         <button onClick={spacesPage}>
           Conheça nossos espaços <span><FaLongArrowAltRight /></span>
