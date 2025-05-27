@@ -1,6 +1,7 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { SpaceUsageData } from '../../../types';
+import { dashboardConfig } from '../../../utils/dashboardStyles';
 
 interface SpaceUsageChartProps {
   data: SpaceUsageData[];
@@ -8,9 +9,22 @@ interface SpaceUsageChartProps {
 
 const SpaceUsageChart = ({ data }: SpaceUsageChartProps) => {
   return (
-    <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-      <h3 className="text-lg font-semibold mb-4">Taxa de Ocupação dos Espaços</h3>
-      <div className="h-64">
+    <div style={{
+      backgroundColor: dashboardConfig.colors.cardBackground,
+      padding: dashboardConfig.spacing.large,
+      borderRadius: '12px',
+      border: `1px solid ${dashboardConfig.colors.border}`,
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+    }}>
+      <h3 style={{
+        fontSize: '18px',
+        fontWeight: '600',
+        marginBottom: dashboardConfig.spacing.medium,
+        color: dashboardConfig.colors.textPrimary
+      }}>
+        Taxa de Ocupação dos Espaços
+      </h3>
+      <div style={{ height: '300px' }}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
@@ -21,23 +35,31 @@ const SpaceUsageChart = ({ data }: SpaceUsageChartProps) => {
               bottom: 60,
             }}
           >
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid strokeDasharray="3 3" stroke={dashboardConfig.colors.border} />
             <XAxis
               dataKey="name"
               angle={-45}
               textAnchor="end"
-              tick={{ fontSize: 12 }}
+              tick={{ fontSize: 12, fill: dashboardConfig.colors.textSecondary }}
               height={60}
             />
             <YAxis
               tickFormatter={(value) => `${value}%`}
               domain={[0, 100]}
+              tick={{ fill: dashboardConfig.colors.textSecondary }}
             />
-            <Tooltip formatter={(value) => `${value}%`} />
+            <Tooltip 
+              formatter={(value) => `${value}%`}
+              contentStyle={{
+                backgroundColor: dashboardConfig.colors.cardBackground,
+                border: `1px solid ${dashboardConfig.colors.border}`,
+                borderRadius: '8px'
+              }}
+            />
             <Bar
               dataKey="usagePercentage"
               name="Taxa de Ocupação"
-              fill="#0B5FFF"
+              fill={dashboardConfig.colors.secondary}
               radius={[4, 4, 0, 0]}
             />
           </BarChart>

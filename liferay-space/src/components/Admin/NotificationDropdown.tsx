@@ -36,47 +36,150 @@ const NotificationDropdown = ({ requests }: NotificationDropdownProps) => {
     });
   };
 
+  // Estilos para o card de notificação
+  const notificationCardStyle = {
+    backgroundColor: 'rgba(255, 255, 255, 0.9)', // Fundo transparente
+    backdropFilter: 'blur(10px)',
+    borderRadius: '8px',
+    border: '1px solid rgba(229, 231, 235, 0.5)',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    width: '320px',
+    padding: '0',
+    overflow: 'hidden'
+  };
+
+  // Estilos para cada item de notificação
+  const notificationItemStyle = {
+    padding: '12px 16px',
+    borderBottom: '1px solid rgba(229, 231, 235, 0.5)',
+    transition: 'background-color 0.2s',
+    cursor: 'pointer',
+    ':hover': {
+      backgroundColor: 'rgba(243, 244, 246, 0.7)'
+    }
+  };
+
+  // Estilos para o botão de notificação
+  const notificationButtonStyle = {
+    position: 'relative',
+    padding: '8px',
+    backgroundColor: '#1e40af',
+    borderRadius: '50%',
+    border: 'none',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'white',
+    transition: 'background-color 0.2s',
+    ':hover': {
+      backgroundColor: '#1e3a8a'
+    }
+  };
+
+  // Estilos para o indicador de notificação não lida
+  const unreadIndicatorStyle = {
+    position: 'absolute',
+    top: '4px',
+    right: '4px',
+    width: '8px',
+    height: '8px',
+    backgroundColor: '#ef4444',
+    borderRadius: '50%'
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="relative p-2 bg-blue-600 hover:bg-blue-700 rounded-full text-white">
+        <button style={notificationButtonStyle}>
           <Bell size={20} />
           {hasUnreadNotifications && (
-            <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+            <span style={unreadIndicatorStyle}></span>
           )}
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-80">
-        <DropdownMenuLabel>Notificações</DropdownMenuLabel>
-        <DropdownMenuSeparator />
+      <DropdownMenuContent 
+        align="end" 
+        style={notificationCardStyle}
+        className="dropdown-content"
+      >
+        <div style={{
+          padding: '12px 16px',
+          borderBottom: '1px solid rgba(229, 231, 235, 0.5)',
+          fontWeight: '600',
+          fontSize: '14px',
+          color: '#1f2937'
+        }}>
+          Notificações
+        </div>
+        
         {recentRequests.length > 0 ? (
           <>
             {recentRequests.map((request) => (
-              <DropdownMenuItem key={request.id} className="cursor-pointer">
+              <div 
+                key={request.id} 
+                style={notificationItemStyle}
+                onClick={() => handleNotificationClick(request)}
+              >
                 <Link 
                   to={`/requests?id=${request.id}`}
-                  className="w-full"
-                  onClick={() => handleNotificationClick(request)}
+                  style={{
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    display: 'block',
+                    width: '100%'
+                  }}
                 >
-                  <div className="flex flex-col">
-                    <span className="font-medium">{request.title}</span>
-                    <div className="flex justify-between text-xs text-gray-500">
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <span style={{ 
+                      fontWeight: '500',
+                      marginBottom: '4px',
+                      color: '#1f2937'
+                    }}>
+                      {request.title}
+                    </span>
+                    <div style={{ 
+                      display: 'flex', 
+                      justifyContent: 'space-between',
+                      fontSize: '12px',
+                      color: '#6b7280'
+                    }}>
                       <span>{request.requesterName}</span>
                       <span>{formatDate(request.eventDate)}</span>
                     </div>
                   </div>
                 </Link>
-              </DropdownMenuItem>
+              </div>
             ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuItem asChild>
-              <Link to="/requests" className="w-full text-center text-primary-600 font-medium">
+            
+            <div style={{ 
+              padding: '8px 16px',
+              borderTop: '1px solid rgba(229, 231, 235, 0.5)',
+              textAlign: 'center'
+            }}>
+              <Link 
+                to="/requests" 
+                style={{
+                  color: '#1e40af',
+                  fontWeight: '500',
+                  fontSize: '14px',
+                  textDecoration: 'none',
+                  ':hover': {
+                    textDecoration: 'underline'
+                  }
+                }}
+              >
                 Ver todas as solicitações
               </Link>
-            </DropdownMenuItem>
+            </div>
           </>
         ) : (
-          <div className="py-3 px-2 text-center text-gray-500">
+          <div style={{ 
+            padding: '16px',
+            textAlign: 'center',
+            color: '#6b7280',
+            fontSize: '14px'
+          }}>
             Não há novas notificações
           </div>
         )}

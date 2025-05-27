@@ -1,18 +1,25 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { 
+  Home,
   LayoutDashboard, 
   Calendar, 
   ListChecks,
   BarChart4,
-  Settings
+  Settings,
+  HomeIcon
 } from 'lucide-react';
 
 const Sidebar = () => {
   const navLinks = [
     { 
-      name: 'Dashboard', 
+      name: 'Inicio', 
       path: '/', 
+      icon: <HomeIcon size={20} /> 
+    },
+    { 
+      name: 'Dashboard', 
+      path: '/admin', 
       icon: <LayoutDashboard size={20} /> 
     },
     { 
@@ -37,43 +44,178 @@ const Sidebar = () => {
     },
   ];
 
+  // Estilos do sidebar
+  const sidebarStyle = {
+    background: '#1e40af', // Azul principal
+    color: 'white',
+    borderRight: '1px solid #1e3a8a',
+    width: '256px',
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column' as const
+  };
+
+  // Estilos do cabeçalho
+  const headerStyle = {
+    padding: '16px',
+    borderBottom: '1px solid #1e3a8a'
+  };
+
+  // Estilos do título
+  const titleStyle = {
+    fontSize: '20px',
+    fontWeight: 'bold',
+    margin: 0
+  };
+
+  // Estilos do subtítulo
+  const subtitleStyle = {
+    fontSize: '12px',
+    color: '#bfdbfe',
+    margin: 0
+  };
+
+  // Estilos da navegação
+  const navStyle = {
+    flex: 1,
+    padding: '16px',
+    overflowY: 'auto' as const
+  };
+
+  // Estilos da lista
+  const listStyle = {
+    listStyle: 'none',
+    margin: 0,
+    padding: 0
+  };
+
+  // Estilos do item da lista
+  const listItemStyle = {
+    marginBottom: '4px'
+  };
+
+  // Estilos do link ativo
+  const activeLinkStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '12px 16px',
+    borderRadius: '6px',
+    textDecoration: 'none',
+    color: 'white',
+    background: '#1e3a8a',
+    fontWeight: '500'
+  };
+
+  // Estilos do link inativo
+  const inactiveLinkStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '12px 16px',
+    borderRadius: '6px',
+    textDecoration: 'none',
+    color: '#bfdbfe',
+    background: 'transparent',
+    transition: 'all 0.2s'
+  };
+
+  // Estilos do link hover
+  const hoverLinkStyle = {
+    ...inactiveLinkStyle,
+    background: '#1e3a8a',
+    color: 'white'
+  };
+
+  // Estilos do ícone
+  const iconStyle = {
+    marginRight: '12px'
+  };
+
+  // Estilos do footer
+  const footerStyle = {
+    padding: '16px',
+    borderTop: '1px solid #1e3a8a'
+  };
+
+  // Estilos do perfil
+  const profileStyle = {
+    display: 'flex',
+    alignItems: 'center'
+  };
+
+  // Estilos do avatar
+  const avatarStyle = {
+    width: '32px',
+    height: '32px',
+    borderRadius: '50%',
+    background: '#bfdbfe',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#1e40af',
+    fontWeight: 'bold'
+  };
+
+  // Estilos da info do usuário
+  const userInfoStyle = {
+    marginLeft: '12px'
+  };
+
+  const userNameStyle = {
+    fontSize: '14px',
+    fontWeight: '500',
+    color: 'white',
+    margin: 0
+  };
+
+  const userEmailStyle = {
+    fontSize: '12px',
+    color: '#bfdbfe',
+    margin: 0
+  };
+
   return (
-    <div className="bg-blue-600 text-white border-r border-blue-700 w-64 min-h-screen flex flex-col">
-      <div className="p-4 border-b border-blue-700">
-        <h1 className="text-xl font-bold">
-          <span className="text-white"></span>Liferay Spaces
+    <div style={sidebarStyle}>
+      <div style={headerStyle}>
+        <h1 style={titleStyle}>
+          <span style={{color: 'white'}}>Liferay</span>Spaces
         </h1>
-        <p className="text-xs text-blue-200">Painel Administrativo</p>
+        <p style={subtitleStyle}>Painel Administrativo</p>
       </div>
-      <nav className="flex-1 p-4 overflow-y-auto">
-        <ul className="space-y-1">
+
+      <nav style={navStyle}>
+        <ul style={listStyle}>
           {navLinks.map((link) => (
-            <li key={link.path}>
+            <li key={link.path} style={listItemStyle}>
               <NavLink 
                 to={link.path} 
-                className={({ isActive }) => 
-                  `flex items-center px-4 py-3 rounded-md transition-colors ${
-                    isActive 
-                      ? 'bg-blue-700 text-white font-medium' 
-                      : 'text-blue-100 hover:bg-blue-700 hover:text-white'
-                  }`
-                }
+                style={({ isActive }) => isActive ? activeLinkStyle : inactiveLinkStyle}
+                onMouseEnter={(e) => {
+                  if (!e.currentTarget.classList.contains('active')) {
+                    Object.assign(e.currentTarget.style, hoverLinkStyle);
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!e.currentTarget.classList.contains('active')) {
+                    Object.assign(e.currentTarget.style, inactiveLinkStyle);
+                  }
+                }}
               >
-                <span className="mr-3">{link.icon}</span>
+                <span style={iconStyle}>{link.icon}</span>
                 {link.name}
               </NavLink>
             </li>
           ))}
         </ul>
       </nav>
-      <div className="p-4 border-t border-blue-700">
-        <div className="flex items-center">
-          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold">
+
+      <div style={footerStyle}>
+        <div style={profileStyle}>
+          <div style={avatarStyle}>
             A
           </div>
-          <div className="ml-3">
-            <p className="text-sm font-medium text-white">Admin</p>
-            <p className="text-xs text-blue-200">admin@empresa.com</p>
+          <div style={userInfoStyle}>
+            <p style={userNameStyle}>Admin</p>
+            <p style={userEmailStyle}>admin@empresa.com</p>
           </div>
         </div>
       </div>

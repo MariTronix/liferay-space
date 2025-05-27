@@ -4,14 +4,15 @@ import { EventData } from '../types';
 import { format } from 'date-fns';
 import { Calendar as CalendarIcon, CalendarCheck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/Admin/ui/card';
+import { calendarStyles, calendarConfig, getEventStatusStyle } from '../utils/calendarStyles';
 
 // Mock data for calendar events
 const mockEvents: EventData[] = [
   {
     id: '1',
     title: 'Workshop de Inovação',
-    start: '2025-05-15T14:00:00',
-    end: '2025-05-15T16:00:00',
+    start: '2025-06-15T14:00:00',
+    end: '2025-06-15T16:00:00',
     spaceId: 'ele-01',
     spaceName: 'Elementos',
     status: 'pending',
@@ -20,8 +21,8 @@ const mockEvents: EventData[] = [
   {
     id: '2',
     title: 'Reunião Executiva',
-    start: '2025-05-10T10:00:00',
-    end: '2025-05-10T11:30:00',
+    start: '2025-05-31T10:00:00',
+    end: '2025-05-31T11:30:00',
     spaceId: 'pan-01',
     spaceName: 'Pangeia',
     status: 'approved',
@@ -30,8 +31,8 @@ const mockEvents: EventData[] = [
   {
     id: '3',
     title: 'Treinamento de Equipe',
-    start: '2025-05-20T09:00:00',
-    end: '2025-05-20T17:00:00',
+    start: '2025-06-20T09:00:00',
+    end: '2025-06-20T17:00:00',
     spaceId: 'aud-01',
     spaceName: 'Auditório',
     status: 'approved',
@@ -84,87 +85,151 @@ const CalendarPage = () => {
     return format(date, 'HH:mm');
   };
 
+  const getStatusLabel = (status: string) => {
+    switch (status) {
+      case 'approved': return 'Aprovado';
+      case 'pending': return 'Pendente';
+      case 'rejected': return 'Rejeitado';
+      default: return status;
+    }
+  };
+
   return (
     <Layout title="Calendário de Eventos">
-      <div className="space-y-6">
-        <h2 className="text-xl font-semibold text-gray-800">Calendário</h2>
-        <div className="bg-white rounded-lg shadow p-6">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-            <div className="lg:col-span-3">
-              <div className="mb-4 flex items-center">
-                <CalendarIcon className="mr-2 text-primary" />
-                <h3 className="font-medium text-lg">Eventos por Data</h3>
+      <div style={calendarStyles.container}>
+        <div style={calendarStyles.header}>
+          <CalendarIcon size={32} color={calendarConfig.colors.primary} />
+          <h2 style={calendarStyles.title}>Calendário de Eventos</h2>
+        </div>
+        
+        <div style={calendarStyles.mainCard}>
+          <div style={{ display: 'grid', gridTemplateColumns: '3fr 1fr', gap: calendarConfig.spacing.large }}>
+            <div>
+              <div style={{ marginBottom: calendarConfig.spacing.medium, display: 'flex', alignItems: 'center', gap: calendarConfig.spacing.small }}>
+                <CalendarIcon size={20} color={calendarConfig.colors.primary} />
+                <h3 style={{ fontWeight: '600', fontSize: '18px', margin: 0, color: calendarConfig.colors.textPrimary }}>
+                  Eventos por Data
+                </h3>
               </div>
               
-              <div className="space-y-4">
+              <div>
                 {sortedEvents.length > 0 ? (
-                  sortedEvents.map((event) => (
-                    <Card 
-                      key={event.id}
-                      className={`cursor-pointer border-l-4 ${
-                        selectedEvent?.id === event.id ? 'ring-2 ring-blue-500' : ''
-                      } ${getEventClassByStatus(event.status)}`}
-                      onClick={() => setSelectedEvent(event)}
-                    >
-                      <CardHeader className="py-3 px-4">
-                        <div className="flex justify-between items-start">
-                          <CardTitle className="text-base">{event.title}</CardTitle>
-                          <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
-                            getEventClassByStatus(event.status)
-                          }`}>
-                            {event.status === 'approved' ? 'Aprovado' : event.status === 'pending' ? 'Pendente' : 'Rejeitado'}
+                  sortedEvents.map((event) => {
+                    const statusStyle = getEventStatusStyle(event.status);
+                    const isSelected = selectedEvent?.id === event.id;
+                    
+                    return (
+                      <div 
+                        key={event.id}
+                        style={{
+                          ...calendarStyles.eventCard,
+                          ...statusStyle,
+                          ...(isSelected && { 
+                            boxShadow: `0 0 0 2px ${calendarConfig.colors.primary}`,
+                            transform: 'translateY(-1px)'
+                          })
+                        }}
+                        onClick={() => setSelectedEvent(event)}
+                      >
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: calendarConfig.spacing.small }}>
+                          <h4 style={{ margin: 0, fontSize: '16px', fontWeight: '600' }}>{event.title}</h4>
+                          <span style={{
+                            padding: '4px 8px',
+                            borderRadius: '12px',
+                            fontSize: '12px',
+                            fontWeight: '500',
+                            backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                            border: `1px solid ${statusStyle.borderLeftColor}`
+                          }}>
+                            {getStatusLabel(event.status)}
                           </span>
                         </div>
-                      </CardHeader>
-                      <CardContent className="py-2 px-4">
-                        <div className="flex items-center text-sm">
-                          <CalendarCheck className="mr-1 h-4 w-4" />
+                        
+                        <div style={{ display: 'flex', alignItems: 'center', fontSize: '14px', gap: calendarConfig.spacing.small }}>
+                          <CalendarCheck size={16} />
                           <span>{formatEventDate(event.start)}</span>
-                          <span className="mx-1">•</span>
+                          <span>•</span>
                           <span>{formatEventTime(event.start)} - {formatEventTime(event.end)}</span>
                         </div>
-                        <div className="text-sm mt-1">{event.spaceName}</div>
-                      </CardContent>
-                    </Card>
-                  ))
+                        
+                        <div style={{ fontSize: '14px', marginTop: '4px', fontWeight: '500' }}>
+                          {event.spaceName}
+                        </div>
+                      </div>
+                    );
+                  })
                 ) : (
-                  <div className="text-gray-500 italic text-center py-8">
+                  <div style={{ 
+                    textAlign: 'center', 
+                    padding: calendarConfig.spacing.xlarge,
+                    color: calendarConfig.colors.textSecondary,
+                    fontStyle: 'italic'
+                  }}>
                     Não existem eventos cadastrados
                   </div>
                 )}
               </div>
             </div>
             
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-              <h3 className="font-medium text-lg mb-4">Detalhes do Evento</h3>
+            <div style={calendarStyles.detailsPanel}>
+              <h3 style={{ fontWeight: '600', fontSize: '18px', marginBottom: calendarConfig.spacing.medium, color: calendarConfig.colors.textPrimary }}>
+                Detalhes do Evento
+              </h3>
+              
               {selectedEvent ? (
-                <div className="space-y-3">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: calendarConfig.spacing.medium }}>
                   <div>
-                    <span className="text-sm text-gray-500">Título:</span>
-                    <h4 className="font-medium">{selectedEvent.title}</h4>
+                    <span style={{ fontSize: '14px', color: calendarConfig.colors.textSecondary }}>Título:</span>
+                    <h4 style={{ fontWeight: '600', margin: '4px 0 0 0', color: calendarConfig.colors.textPrimary }}>
+                      {selectedEvent.title}
+                    </h4>
                   </div>
+                  
                   <div>
-                    <span className="text-sm text-gray-500">Local:</span>
-                    <p>{selectedEvent.spaceName}</p>
+                    <span style={{ fontSize: '14px', color: calendarConfig.colors.textSecondary }}>Local:</span>
+                    <p style={{ margin: '4px 0 0 0', color: calendarConfig.colors.textPrimary }}>{selectedEvent.spaceName}</p>
                   </div>
+                  
                   <div>
-                    <span className="text-sm text-gray-500">Data:</span>
-                    <p>{formatEventDate(selectedEvent.start)}</p>
+                    <span style={{ fontSize: '14px', color: calendarConfig.colors.textSecondary }}>Data:</span>
+                    <p style={{ margin: '4px 0 0 0', color: calendarConfig.colors.textPrimary }}>{formatEventDate(selectedEvent.start)}</p>
                   </div>
+                  
                   <div>
-                    <span className="text-sm text-gray-500">Horário:</span>
-                    <p>{formatEventTime(selectedEvent.start)} - {formatEventTime(selectedEvent.end)}</p>
+                    <span style={{ fontSize: '14px', color: calendarConfig.colors.textSecondary }}>Horário:</span>
+                    <p style={{ margin: '4px 0 0 0', color: calendarConfig.colors.textPrimary }}>
+                      {formatEventTime(selectedEvent.start)} - {formatEventTime(selectedEvent.end)}
+                    </p>
                   </div>
+                  
                   <div>
-                    <span className="text-sm text-gray-500">Status:</span>
-                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getEventClassByStatus(selectedEvent.status)}`}>
-                      {selectedEvent.status === 'approved' ? 'Aprovado' : selectedEvent.status === 'pending' ? 'Pendente' : 'Rejeitado'}
-                    </span>
+                    <span style={{ fontSize: '14px', color: calendarConfig.colors.textSecondary }}>Status:</span>
+                    <div style={{ marginTop: '4px' }}>
+                      <span style={{
+                        padding: '4px 12px',
+                        borderRadius: '12px',
+                        fontSize: '12px',
+                        fontWeight: '500',
+                        ...getEventStatusStyle(selectedEvent.status)
+                      }}>
+                        {getStatusLabel(selectedEvent.status)}
+                      </span>
+                    </div>
                   </div>
+                  
                   <button 
-                    className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 w-full"
+                    style={{
+                      marginTop: calendarConfig.spacing.medium,
+                      padding: `${calendarConfig.spacing.small} ${calendarConfig.spacing.medium}`,
+                      backgroundColor: calendarConfig.colors.primary,
+                      color: 'white',
+                      borderRadius: '6px',
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontWeight: '500',
+                      transition: 'background-color 0.2s'
+                    }}
                     onClick={() => {
-                      // In a real app, this would navigate to the request details
                       console.log(`Navigate to request ${selectedEvent.requestId}`);
                     }}
                   >
@@ -172,7 +237,7 @@ const CalendarPage = () => {
                   </button>
                 </div>
               ) : (
-                <div className="text-gray-500 italic">
+                <div style={{ color: calendarConfig.colors.textSecondary, fontStyle: 'italic' }}>
                   Selecione um evento para ver os detalhes
                 </div>
               )}

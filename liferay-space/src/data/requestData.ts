@@ -10,12 +10,12 @@ export const mockRequests: Request[] = [
     spaceId: 'elem-01',
     spaceName: 'Elementos',
     attendees: 20,
-    eventDate: '2025-05-15',
+    eventDate: '2025-06-15',
     startTime: '14:00',
     endTime: '16:00',
     status: 'pending',
     description: 'Workshop sobre tecnologias inovadoras. Vamos discutir as últimas tendências em IA e como elas podem ser aplicadas nos negócios. O workshop inclui demonstrações práticas e sessões de networking.',
-    createdAt: '2025-05-01'
+    createdAt: '2025-06-01'
   },
   {
     id: '2',
@@ -25,7 +25,7 @@ export const mockRequests: Request[] = [
     spaceId: 'pang-01',
     spaceName: 'Pangeia',
     attendees: 8,
-    eventDate: '2025-05-10',
+    eventDate: '2025-05-31',
     startTime: '10:00',
     endTime: '11:30',
     status: 'approved',
@@ -40,7 +40,7 @@ export const mockRequests: Request[] = [
     spaceId: 'aud-01',
     spaceName: 'Auditório',
     attendees: 150,
-    eventDate: '2025-05-20',
+    eventDate: '2025-06-20',
     startTime: '09:00',
     endTime: '17:00',
     status: 'rejected',

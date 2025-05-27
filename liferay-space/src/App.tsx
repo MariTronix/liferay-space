@@ -4,7 +4,7 @@ import { SpacesPage } from './SpacesPage.tsx';
 import Index from './pages/Index.tsx'
 import './App.css';
 import styles from './App.module.css';
-import { Calendar } from 'lucide-react';
+import Calendar from './pages/Calendar.tsx'
 import Requests from './pages/Requests.tsx';
 import Reports from './pages/Reports.tsx';
 import NotFound from './pages/NotFound.tsx';

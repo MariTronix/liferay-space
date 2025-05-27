@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { Search } from 'lucide-react';
 import NotificationDropdown from './NotificationDropdown';
 import { useLocation } from 'react-router-dom';
-import { requests } from '../../data/mockData';
+import { requests } from '../..//data/mockData';
 import MediaQuery from './utils/MediaQuery';
 
 interface HeaderProps {

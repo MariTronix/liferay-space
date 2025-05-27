@@ -14,6 +14,10 @@ export function Header(){
     const Home = () => {
         navigate('/'); // Rota interna
     };
+
+    const Admin = () => {
+        navigate('/admin');
+    };
     return(
         <header className={styles.header}>
             <div className={styles.upperHeader}>
@@ -25,7 +29,7 @@ export function Header(){
                 <div>
                     <button onClick={spacesPage}>Espaços</button> 
                     <button>Reservar</button>
-                    <button onClick={Index}>
+                    <button onClick={Admin}>
                         Admin
                         <FaLock />
                     </button>

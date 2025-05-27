@@ -1,107 +1,92 @@
 import React, { useState } from 'react';
-import Layout from '../components/Admin/Layout';
-import RequestTable from '../components/Admin/dashboard/RequestTable';
-import { useToast } from "../hooks/use-toast";
-import { Request } from '../types';
-import { mockRequests } from '../data/requestData';
-import RequestDetailsDialog from '../components/Admin/request/RequestDetailsDialog';
-import RequestEditModal from '../components/Admin/request/RequestEditalModel';
+import { Request } from '../types'; // Verifique o caminho
+import { mockRequests } from '../data/requestData'; // Verifique o caminho
+import Layout from '../components/Admin/Layout'; // Verifique o caminho
+import RequestTable from '../components/Admin/dashboard/RequestTable'; // Verifique o caminho
+import RequestEditCard from '../components/Admin/request/RequestEditCard'; // Verifique o caminho
+import { useToast } from "../hooks/use-toast"; // Verifique o caminho
 
 const Requests = () => {
   const [requests, setRequests] = useState<Request[]>(mockRequests);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
   const [currentRequest, setCurrentRequest] = useState<Request | null>(null);
   const { toast } = useToast();
 
   const handleApprove = (id: string) => {
-    setRequests(prev =>
-      prev.map(request =>
-        request.id === id ? { ...request, status: 'approved' } : request
-      )
-    );
-    toast({
-      title: "Solicitação aprovada",
-      description: "A solicitação foi aprovada com sucesso.",
-    });
-    setIsDetailsModalOpen(false);
+    setRequests(prev => prev.map(r => r.id === id ? { ...r, status: 'approved' } : r));
   };
 
   const handleReject = (id: string) => {
-    setRequests(prev =>
-      prev.map(request =>
-        request.id === id ? { ...request, status: 'rejected' } : request
-      )
-    );
-    toast({
-      title: "Solicitação rejeitada",
-      description: "A solicitação foi rejeitada com sucesso.",
-    });
-    setIsDetailsModalOpen(false);
+    setRequests(prev => prev.map(r => r.id === id ? { ...r, status: 'rejected' } : r));
   };
 
   const handleEdit = (request: Request) => {
     setCurrentRequest(request);
-    setIsEditModalOpen(true);
+    setIsEditOpen(true);
   };
 
-  const handleDetails = (request: Request) => {
-    setCurrentRequest(request);
-    setIsDetailsModalOpen(true);
+  const handleCloseEdit = () => {
+    setIsEditOpen(false);
+    setCurrentRequest(null);
   };
 
   const handleSaveEdit = (editedRequest: Request) => {
     setRequests(prev =>
-      prev.map(request =>
-        request.id === editedRequest.id ? editedRequest : request
-      )
+      prev.map(request => (request.id === editedRequest.id ? editedRequest : request))
     );
-    setIsEditModalOpen(false);
-    setCurrentRequest(null);
+    handleCloseEdit();
     toast({
       title: "Evento atualizado",
       description: "O evento foi atualizado com sucesso.",
     });
   };
 
-  const handleCloseEditModal = () => {
-    setIsEditModalOpen(false);
-    setCurrentRequest(null);
-  };
-
-  const handleDetailsOpenChange = (open: boolean) => {
-    setIsDetailsModalOpen(open);
-    if (!open) {
-      setCurrentRequest(null);
+  const styles = {
+    pageContainer: {
+      padding: '24px',
+      backgroundColor: '#f8fafc',
+      minHeight: '100vh',
+      fontFamily: 'sans-serif',
+    },
+    header: {
+      marginBottom: '24px',
+    },
+    title: {
+      fontSize: '24px',
+      fontWeight: 'bold',
+      color: '#1f2937',
+    },
+    subtitle: {
+      marginTop: '4px',
+      color: '#6b7280',
     }
   };
 
   return (
     <Layout title="Solicitações">
-      <div className="space-y-6">
-        <h2 className="text-xl font-semibold text-gray-800">Gerenciamento de Solicitações</h2>
-        <RequestTable 
-          requests={requests} 
-          onApprove={handleApprove} 
-          onReject={handleReject} 
-          onEdit={handleEdit}
-          onDetails={handleDetails}
-        />
-        
-        <RequestEditModal
-          request={currentRequest}
-          isOpen={isEditModalOpen}
-          onClose={handleCloseEditModal}
-          onSave={handleSaveEdit}
-        />
+      <div style={styles.pageContainer}>
+        <div style={styles.header}>
+          <h1 style={styles.title}>Gerenciamento de Solicitações</h1>
+          <p style={styles.subtitle}>Gerencie todas as solicitações de eventos da organização.</p>
+        </div>
 
-        <RequestDetailsDialog
-          request={currentRequest}
-          isOpen={isDetailsModalOpen}
-          onOpenChange={handleDetailsOpenChange}
+        <RequestTable
+          requests={requests}
           onApprove={handleApprove}
           onReject={handleReject}
+          onEdit={handleEdit}
+          onDetails={(request) => console.log('Detalhes:', request)} // Exemplo para detalhes
         />
+
+        {/* O card de edição só aparece quando isEditOpen é true */}
+        {isEditOpen && (
+          <RequestEditCard
+            isOpen={isEditOpen}
+            request={currentRequest}
+            onSave={handleSaveEdit}
+            onClose={handleCloseEdit}
+          />
+        )}
       </div>
     </Layout>
   );
