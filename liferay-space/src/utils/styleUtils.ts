@@ -1,26 +1,21 @@
 import { CSSProperties } from 'react';
 
-// Helper to handle responsive styles
 export const useResponsiveStyles = () => {
   const getResponsiveStyle = (defaultStyle: CSSProperties, mediaQueryStyles: Record<string, CSSProperties>) => {
-    // Initialize with default styles
+
     const style = { ...defaultStyle };
     
-    // Generate unique id for this style instance
     const styleId = `responsive-style-${Math.random().toString(36).substr(2, 9)}`;
     
-    // Create style element
     const styleElement = document.createElement('style');
     styleElement.id = styleId;
     
-    // Build CSS rules for media queries
     let cssRules = '';
     
     Object.entries(mediaQueryStyles).forEach(([query, styles]) => {
       cssRules += `@media ${query} { .${styleId} {`;
       
       Object.entries(styles).forEach(([prop, value]) => {
-        // Convert camelCase to kebab-case
         const kebabProp = prop.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
         cssRules += `${kebabProp}: ${value} !important;`;
       });
@@ -31,7 +26,6 @@ export const useResponsiveStyles = () => {
     styleElement.textContent = cssRules;
     document.head.appendChild(styleElement);
     
-    // Return both the style object and the data attribute for the media queries
     return {
       ...style,
       dataSet: { responsiveStyleId: styleId }
@@ -41,7 +35,6 @@ export const useResponsiveStyles = () => {
   return { getResponsiveStyle };
 };
 
-// Common style constants
 export const colors = {
   primary: '#2563eb',
   primaryDark: '#1d4ed8',

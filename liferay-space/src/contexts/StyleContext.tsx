@@ -19,16 +19,12 @@ export const StyleProvider: React.FC<{children: ReactNode}> = ({ children }) => 
     }));
   };
 
-  // Helper for applying media query styles dynamically
   const getMediaQueryStyle = (mediaStyles: Record<string, React.CSSProperties>): any => {
-    // Generate unique classname for dynamic styles
     const uniqueId = Math.random().toString(36).substring(2, 9);
     
-    // Create style element for media queries
     const styleElement = document.createElement('style');
     document.head.appendChild(styleElement);
     
-    // Build CSS rules
     let cssRules = '';
     const classNames: string[] = [];
     
@@ -50,7 +46,6 @@ export const StyleProvider: React.FC<{children: ReactNode}> = ({ children }) => 
       styleElement.textContent = cssRules;
     }
     
-    // Return the classNames to be added to the component
     return { customClasses: classNames.join(' ') };
   };
 

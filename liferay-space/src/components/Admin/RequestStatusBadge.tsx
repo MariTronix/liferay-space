@@ -22,20 +22,20 @@ const RequestStatusBadge: React.FC<RequestStatusBadgeProps> = ({ status }) => {
       case 'pending':
         return {
           ...baseStyle,
-          backgroundColor: '#fef3c7', // Yellow-100
-          color: '#92400e', // Yellow-800
+          backgroundColor: '#fef3c7', 
+          color: '#92400e',
         };
       case 'approved':
         return {
           ...baseStyle,
-          backgroundColor: '#d1fae5', // Green-100
-          color: '#065f46', // Green-800
+          backgroundColor: '#d1fae5',
+          color: '#065f46',
         };
       case 'rejected':
         return {
           ...baseStyle,
-          backgroundColor: '#fee2e2', // Red-100
-          color: '#b91c1c', // Red-800
+          backgroundColor: '#fee2e2', 
+          color: '#b91c1c',
         };
       default:
         return baseStyle;

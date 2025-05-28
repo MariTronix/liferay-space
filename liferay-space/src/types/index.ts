@@ -25,20 +25,20 @@ export interface Request {
   requesterEmail: string;
   spaceId: string;
   spaceName: SpaceType;
-  eventDate: string; // ISO date string
-  startTime: string; // HH:MM format
-  endTime: string; // HH:MM format
+  eventDate: string; 
+  startTime: string;
+  endTime: string;
   attendees: number;
   status: RequestStatus;
   description: string;
-  createdAt: string; // ISO date string
+  createdAt: string;
 }
 
 export interface EventData {
   id: string;
   title: string;
-  start: string; // ISO date string with time
-  end: string; // ISO date string with time
+  start: string;
+  end: string;
   spaceId: string;
   spaceName: SpaceType;
   status: RequestStatus;

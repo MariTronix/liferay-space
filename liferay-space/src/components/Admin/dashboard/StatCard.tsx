@@ -43,7 +43,6 @@ const StatCard = ({ title, value, icon, change, color = 'primary' }: StatCardPro
 
   const selectedColor = colorStyles[color] || colorStyles.primary;
 
-  // Estilos do container principal
   const cardStyle = {
     padding: '16px',
     borderRadius: '8px',
@@ -56,7 +55,6 @@ const StatCard = ({ title, value, icon, change, color = 'primary' }: StatCardPro
     minWidth: '180px'
   };
 
-  // Estilos do cabeçalho (título + ícone)
   const headerStyle = {
     display: 'flex',
     justifyContent: 'space-between',
@@ -64,7 +62,6 @@ const StatCard = ({ title, value, icon, change, color = 'primary' }: StatCardPro
     marginBottom: '12px'
   };
 
-  // Estilos do título
   const titleStyle = {
     fontSize: '14px',
     fontWeight: 500,
@@ -72,7 +69,6 @@ const StatCard = ({ title, value, icon, change, color = 'primary' }: StatCardPro
     margin: 0
   };
 
-  // Estilos do container do ícone
   const iconContainerStyle = {
     padding: '8px',
     borderRadius: '50%',
@@ -82,7 +78,6 @@ const StatCard = ({ title, value, icon, change, color = 'primary' }: StatCardPro
     justifyContent: 'center'
   };
 
-  // Estilos do valor principal
   const valueStyle = {
     fontSize: '24px',
     fontWeight: 'bold',
@@ -91,7 +86,6 @@ const StatCard = ({ title, value, icon, change, color = 'primary' }: StatCardPro
     lineHeight: 1.2
   };
 
-  // Estilos da variação (quando houver)
   const changeStyle = {
     fontSize: '12px',
     color: change?.positive ? '#10b981' : '#ef4444',
@@ -99,14 +93,12 @@ const StatCard = ({ title, value, icon, change, color = 'primary' }: StatCardPro
     marginLeft: '4px'
   };
 
-  // Estilos do rodapé (container da variação)
   const footerStyle = {
     display: 'flex',
     alignItems: 'center',
     marginTop: '8px'
   };
 
-  // Estilos do texto de referência
   const referenceStyle = {
     fontSize: '12px',
     color: '#6b7280',

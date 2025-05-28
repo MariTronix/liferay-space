@@ -4,7 +4,6 @@ import StatCard from './StatCard';
 import { Calendar, CheckCircle2, Clock, PieChart } from 'lucide-react';
 
 const Dashboard = () => {
-  // Dados de exemplo - substitua pelos seus dados reais
   const stats = {
     pendingRequests: 2,
     todayEvents: 0,
@@ -56,7 +55,6 @@ const Dashboard = () => {
           />
         </div>
 
-        {/* Resto do seu dashboard */}
       </div>
     </Layout>
   );

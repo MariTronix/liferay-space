@@ -48,23 +48,19 @@ const Layout = ({ children, title }: LayoutProps) => {
     cursor: 'pointer'
   };
 
-  // --- ESTILO CORRIGIDO ---
-  // Agora temos UM SÓ estilo para a área de conteúdo principal.
-  const mainContentStyle: React.CSSProperties = {
+ const mainContentStyle: React.CSSProperties = {
     flexGrow: 1,
-    // Um padding profissional e que corresponde ao seu objetivo.
-    // 24px no topo/baixo e 32px nos lados.
+    
     padding: '24px 32px',
-    overflowY: 'auto', // Permite scroll vertical se o conteúdo for grande
+    overflowY: 'auto',
   };
 
   return (
     <div style={{
       display: 'flex',
       minHeight: '100vh',
-      background: '#f8fafb' // Um fundo um pouco mais suave
+      background: '#f8fafb' 
     }}>
-      {/* Overlay para fechar a sidebar no mobile */}
       <MediaQuery query="(max-width: 1023px)">
         <div 
           style={overlayStyle} 
@@ -72,25 +68,21 @@ const Layout = ({ children, title }: LayoutProps) => {
         ></div>
       </MediaQuery>
       
-      {/* Sidebar - versão mobile (controlada por estado) */}
       <MediaQuery query="(max-width: 1023px)">
         <div style={mobileSidebarStyle}>
           <Sidebar />
         </div>
       </MediaQuery>
-      
-      {/* Sidebar - versão desktop (sempre visível) */}
       <MediaQuery query="(min-width: 1024px)">
         <div style={{
           position: 'relative',
           width: '256px',
-          flexShrink: 0 // Impede que a sidebar encolha
+          flexShrink: 0 
         }}>
           <Sidebar />
         </div>
       </MediaQuery>
       
-      {/* Conteúdo Principal (Header + Página) */}
       <div style={{
         display: 'flex',
         flexDirection: 'column',
@@ -98,7 +90,6 @@ const Layout = ({ children, title }: LayoutProps) => {
         minWidth: 0
       }}>
         <Header title={title}>
-          {/* Botão do menu só aparece no mobile */}
           <MediaQuery query="(max-width: 1023px)">
             <button 
               onClick={toggleSidebar} 
@@ -109,8 +100,6 @@ const Layout = ({ children, title }: LayoutProps) => {
           </MediaQuery>
         </Header>
         
-        {/* --- ÁREA DO CONTEÚDO CORRIGIDA --- */}
-        {/* O <main> agora aplica o estilo corrigido e renderiza o {children} diretamente */}
         <main style={mainContentStyle}>
           {children}
         </main>

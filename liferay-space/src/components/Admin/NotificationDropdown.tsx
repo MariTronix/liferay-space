@@ -36,9 +36,9 @@ const NotificationDropdown = ({ requests }: NotificationDropdownProps) => {
     });
   };
 
-  // Estilos para o card de notificação
+
   const notificationCardStyle = {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)', // Fundo transparente
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     backdropFilter: 'blur(10px)',
     borderRadius: '8px',
     border: '1px solid rgba(229, 231, 235, 0.5)',
@@ -48,7 +48,6 @@ const NotificationDropdown = ({ requests }: NotificationDropdownProps) => {
     overflow: 'hidden'
   };
 
-  // Estilos para cada item de notificação
   const notificationItemStyle = {
     padding: '12px 16px',
     borderBottom: '1px solid rgba(229, 231, 235, 0.5)',
@@ -59,7 +58,6 @@ const NotificationDropdown = ({ requests }: NotificationDropdownProps) => {
     }
   };
 
-  // Estilos para o botão de notificação
   const notificationButtonStyle = {
     position: 'relative',
     padding: '8px',
@@ -77,7 +75,6 @@ const NotificationDropdown = ({ requests }: NotificationDropdownProps) => {
     }
   };
 
-  // Estilos para o indicador de notificação não lida
   const unreadIndicatorStyle = {
     position: 'absolute',
     top: '4px',

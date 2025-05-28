@@ -12,31 +12,26 @@ export const spaces: Space[] = [
   { id: "9", name: "Sala de jogos", capacity: 45, category: "sala_jogos" }
 ];
 
-// Generate dates for the current month
 const today = new Date();
 const currentMonth = today.getMonth();
 const currentYear = today.getFullYear();
 
-// Helper function to get random date in current month
 const getRandomDate = () => {
   const day = Math.floor(Math.random() * 28) + 1;
   return new Date(currentYear, currentMonth, day);
 };
 
-// Helper function to format date to ISO string
 const formatDate = (date: Date) => {
   return date.toISOString().split('T')[0];
 };
 
-// Generate random time
 const getRandomTime = (isStart = true) => {
   const hours = isStart 
-    ? Math.floor(Math.random() * 12) + 8 // 8 AM to 8 PM
-    : Math.floor(Math.random() * 12) + 9; // 9 AM to 9 PM
+    ? Math.floor(Math.random() * 12) + 8 
+    : Math.floor(Math.random() * 12) + 9; 
   return `${hours.toString().padStart(2, '0')}:00`;
 };
 
-// Generate requests
 export const requests: Request[] = Array.from({ length: 30 }, (_, i) => {
   const eventDate = getRandomDate();
   const startTime = getRandomTime(true);
@@ -82,7 +77,6 @@ export const events: EventData[] = requests
     };
   });
 
-// Generate space usage data
 export const spaceUsage: SpaceUsageData[] = spaces.map(space => {
   const eventsInSpace = events.filter(event => event.spaceId === space.id);
   const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -95,12 +89,9 @@ export const spaceUsage: SpaceUsageData[] = spaces.map(space => {
   };
 });
 
-// Generate monthly events data
 export const monthlyEvents: MonthlyEventsData[] = (() => {
   const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
   return months.map((month, index) => {
-    // If it's a future month, generate random data
-    // Otherwise, use past data based on the requests
     const count = index <= currentMonth
       ? requests
           .filter(req => {

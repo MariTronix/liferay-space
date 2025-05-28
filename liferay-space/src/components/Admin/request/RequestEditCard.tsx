@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Request } from '../../../types'; // Verifique o caminho
+import { Request } from '../../../types';
 
 const mockSpaces = [
   { id: 'elem-01', name: 'Sala Elementos', capacity: 25 },

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Request } from '../../../types'; // Verifique o caminho
-import RequestStatusBadge from '../RequestStatusBadge'; // Verifique o caminho
+import { Request } from '../../../types'; 
+import RequestStatusBadge from '../RequestStatusBadge'; 
 
 interface RequestTableProps {
   requests: Request[];

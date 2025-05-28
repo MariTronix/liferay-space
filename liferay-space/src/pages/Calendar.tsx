@@ -6,7 +6,6 @@ import { Calendar as CalendarIcon, CalendarCheck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/Admin/ui/card';
 import { calendarStyles, calendarConfig, getEventStatusStyle } from '../utils/calendarStyles';
 
-// Mock data for calendar events
 const mockEvents: EventData[] = [
   {
     id: '1',
@@ -54,14 +53,12 @@ const CalendarPage = () => {
   const [events] = useState<EventData[]>(mockEvents);
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
 
-  // Sort events by start date
   const sortedEvents = useMemo(() => {
     return [...events].sort((a, b) => 
       new Date(a.start).getTime() - new Date(b.start).getTime()
     );
   }, [events]);
 
-  // Function to get CSS class based on event status
   const getEventClassByStatus = (status: string) => {
     switch (status) {
       case 'approved':

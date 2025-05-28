@@ -7,20 +7,11 @@ export const sidebarConfig = {
     primaryDark: '#1e3a8a',    // Azul escuro
     primaryLight: '#bfdbfe',   // Azul claro
     white: '#ffffff',          // Branco
-    
-    // Você pode alterar essas cores facilmente:
-    // primary: '#059669',        // Verde
-    // primaryDark: '#047857',    // Verde escuro
-    // primaryLight: '#a7f3d0',   // Verde claro
-    
-    // primary: '#dc2626',        // Vermelho
-    // primaryDark: '#b91c1c',    // Vermelho escuro
-    // primaryLight: '#fecaca',   // Vermelho claro
   },
   
   sizes: {
     width: '256px',
-    padding: '16px',
+    padding: '160px',
     borderRadius: '6px',
     iconSize: 20,
     avatarSize: '32px'

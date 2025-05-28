@@ -10,7 +10,6 @@ interface PendingRequestsTableProps {
 }
 
 const PendingRequestsTable: React.FC<PendingRequestsTableProps> = ({ pendingRequests }) => {
-  // Common styles
   const cardStyle: React.CSSProperties = {
     backgroundColor: colors.white,
     borderRadius: '0.5rem',
