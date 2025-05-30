@@ -5,7 +5,7 @@ import { Header } from './components/Header.tsx';
 import { Footer } from './components/Footer.tsx';
 
 
-export const SpacesPage = () =>{
+export const SpacesPage = () => {
     return (
         <>
             <Header/>

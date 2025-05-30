@@ -11,6 +11,9 @@ export function Header(){
     const spacesPage = () => {
         navigate('./SpacesPage.tsx'); // Rota interna
       };
+    const formPage = () => {
+        navigate('./forms'); // Rota interna
+      };
     const Home = () => {
         navigate('/'); // Rota interna
     };
@@ -28,7 +31,7 @@ export function Header(){
                 </div>
                 <div>
                     <button onClick={spacesPage}>Espaços</button> 
-                    <button>Reservar</button>
+                    <button onClick={formPage}>Reservar</button>
                     <button onClick={Admin}>
                         Admin
                         <FaLock />
