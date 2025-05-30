@@ -239,6 +239,7 @@ export const ReservationForm = () => {
   };
   
   return (
+    <div>
     <div style={pageWrapperStyle}>
       <Header />
       <main style={mainContentStyle}>
@@ -364,7 +365,7 @@ export const ReservationForm = () => {
           </form>
         </div>
       </main>
-      <hr />
+      </div>
       <Footer />
     </div>
   );
