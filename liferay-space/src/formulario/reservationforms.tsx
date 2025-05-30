@@ -192,7 +192,7 @@ export const ReservationForm = () => {
     responsibleName: "", institutionName: "", email: "", phone: "",
     date: "", startTime: "", endTime: "", participants: "",
     spaces: {
-      auditorium180: false, auditorium150: false, auditorium120: false,
+      auditorium180: false, auditorium5: false, auditorium120: false,
       auditorium100: false, auditorium80: false,
     },
     alternativeSpace: "", eventDescription: "", termsAgreed: false,
@@ -319,7 +319,7 @@ export const ReservationForm = () => {
                 </div>
               </div>
 
-              {/* Espaço alternativo COM CARD ATUALIZADO */}
+              {/* Espaço alternativo COM CARD ATUALIZADO
               <div style={{ ...formInputElementContainerStyle, ...alternativeSpaceCardStyle, flexBasis: '100%', minWidth: 'auto' }}>
                 <Label htmlFor="alternativeSpace" style={labelStyle}>Espaço alternativo</Label>
                 <Select value={formData.alternativeSpace} onValueChange={handleSelectChange}>
@@ -332,7 +332,7 @@ export const ReservationForm = () => {
                     <SelectItem value="space3">Espaço Aberto</SelectItem>
                   </SelectContent>
                 </Select>
-              </div>
+              </div> */}
             </section>
 
             <div style={termsSectionStyle}>
