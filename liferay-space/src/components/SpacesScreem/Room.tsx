@@ -1,5 +1,6 @@
 import styles from './Room.module.css'
 import {FaUser, FaLongArrowAltRight} from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom';
 
 import 'swiper/swiper-bundle.css'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -13,6 +14,10 @@ interface RoomProps {
 
 
 export const Room = ({img, name, description, capacity}: RoomProps) => {
+      const navigate = useNavigate();
+      const formPage = () => {
+        navigate('/forms'); // Rota interna
+      };
       return(
         <div className={styles.room}>
         <Swiper 
@@ -38,7 +43,7 @@ export const Room = ({img, name, description, capacity}: RoomProps) => {
           </div>
           {/*Lembrete:  colocar recursos!!!!! */}
           <div className={styles.roomDivButtons}>
-            <button className={styles.roomReserve}>Reservar <span><FaLongArrowAltRight/></span> </button>
+            <button className={styles.roomReserve} onClick={formPage}>Reservar <span><FaLongArrowAltRight/></span> </button>
           </div>
         </div>
       );
