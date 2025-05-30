@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Input } from "@/formulario/ui/input";
+import { Label } from "@/formulario/ui/label";
+import { Button } from "@/formulario/ui/button";
+import { Checkbox } from "@/formulario/ui/checkbox";
+import { Textarea } from "@/formulario/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/formulario/ui/select";
 import { useToast } from "@/hooks/use-toast";
 
-const ReservationForm = () => {
+export const ReservationForm = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     responsibleName: "",
@@ -348,5 +348,3 @@ const ReservationForm = () => {
     </div>
   );
 };
-
-export default ReservationForm; 

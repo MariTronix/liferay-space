@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './HomePage.tsx';
-import { SpacesPage } from './SpacesPage.tsx';
+import { SpacesPage } from './SpacesPage.tsx';  
+import { ReservationForm } from '@/formulario/reservationforms';
 import Index from './pages/Index.tsx'
 import './App.css';
 import styles from './App.module.css';
@@ -25,6 +26,7 @@ export function App() {
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/reports" element={<Reports />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/forms" element={<ReservationForm />} />
     </Routes>
     </div>
     
