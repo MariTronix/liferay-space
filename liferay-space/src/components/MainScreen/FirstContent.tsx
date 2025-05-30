@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'; //módulo para navegação do re
 export const FirstContent = () => {
   const navigate = useNavigate();
   const spacesPage = () => {
-      navigate('./SpacesPage.tsx'); // Rota interna
+      navigate('/SpacesPage'); // Rota interna
     };
   return (
     <section className={styles.firstContent}>

@@ -9,10 +9,10 @@ import {FaLock} from 'react-icons/fa';
 export function Header(){
     const navigate = useNavigate();
     const spacesPage = () => {
-        navigate('./SpacesPage.tsx'); // Rota interna
+        navigate('/SpacesPage'); // Rota interna
       };
     const formPage = () => {
-        navigate('./forms'); // Rota interna
+        navigate('/forms'); // Rota interna
       };
     const Home = () => {
         navigate('/'); // Rota interna

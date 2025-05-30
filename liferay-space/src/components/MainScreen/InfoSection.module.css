@@ -78,5 +78,5 @@
   outline-offset: 3px; 
 }
 .button:hover span{
-  transform: translateX(5px);
+  transform: translateX(10px);
 }

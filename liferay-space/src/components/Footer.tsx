@@ -17,8 +17,8 @@ export function Footer(){
                 <div className={styles['footer-navigation']}>
                     <h3>Navegação</h3>
                     <a href="/">{simbolo} Home</a>
-                    <a href="../SpacesPage.tsx">{simbolo} Espaços</a>
-                    <a href="#">{simbolo} Reserva</a>
+                    <a href="/SpacesPage">{simbolo} Espaços</a>
+                    <a href="/forms">{simbolo} Reserva</a>
                 </div>
 
                 <div className={styles['footer-contact']}>

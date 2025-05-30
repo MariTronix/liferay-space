@@ -7,7 +7,10 @@ import { useNavigate } from 'react-router-dom';
 export const InfoSection = () => {
   const navigate = useNavigate();
   const spacesPage = () => {
-      navigate('./SpacesPage.tsx'); // Rota interna
+      navigate('/SpacesPage'); // Rota interna
+    };
+  const formPage = () => {
+      navigate('/forms'); // Rota interna
     };
   return (
     <div className={styles.container}>
@@ -50,7 +53,7 @@ export const InfoSection = () => {
             queremos conectar pessoas e histórias que transformam o mundo ao seu redor.
             Faça parte dessa rede!
           </p>
-          <button className={styles.button}>Consulte nosso calendário <span><FaLongArrowAltRight /></span></button>
+          <button className={styles.button} onClick={formPage}>Solicite um dos nossos espaços <span><FaLongArrowAltRight /></span></button>
         </div>
       </section>
     </div>
