@@ -16,7 +16,6 @@ const Layout = ({ children, title }: LayoutProps) => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  // --- ESTILOS (sem alterações aqui) ---
   const overlayStyle: React.CSSProperties = {
     position: 'fixed',
     inset: 0,
