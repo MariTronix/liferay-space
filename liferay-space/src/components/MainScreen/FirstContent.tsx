@@ -3,12 +3,12 @@ import img1 from '../../assets/imgSalas/auditorio1.jpg';
 import img2 from '../../assets/imgSalas/salaPangeia2.jpg';
 import img3 from '../../assets/imgSalas/salaMontanha.jpg';
 import {FaLongArrowAltRight} from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom'; //módulo para navegação do react-dom
+import { useNavigate } from 'react-router-dom';
 
 export const FirstContent = () => {
   const navigate = useNavigate();
   const spacesPage = () => {
-      navigate('/SpacesPage'); // Rota interna
+      navigate('/SpacesPage');
     };
   return (
     <section className={styles.firstContent}>

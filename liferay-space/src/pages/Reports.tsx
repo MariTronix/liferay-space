@@ -11,7 +11,7 @@ import {
   Tooltip,
   Cell
 } from 'recharts';
-import { reportsStyles, reportsConfig, getInsightStyle } from '../utils/ReportsStyles';
+import { reportsStyles, reportsConfig, getInsightStyle } from '../utils/reportsStyles';
 
 // Dados dos eventos por mês
 const monthlyEventsData = [

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Request } from '../../../types';
-import RequestStatusBadge from '../RequestStatusBadge';
+import RequestStatusBadge from '../RequestStatusBadge'; 
 import { Link } from 'react-router-dom';
-import { colors, spacing, fontSizes, fontWeights, borderRadii } from '../../../utils/styleUtils';
+import { colors, spacing, fontSizes, fontWeights, borderRadii } from '../../../utils/styleUtils'; 
 import MediaQuery from '../utils/MediaQuery';
 
 interface PendingRequestsTableProps {
@@ -58,13 +58,16 @@ const PendingRequestsTable: React.FC<PendingRequestsTableProps> = ({ pendingRequ
     padding: `${spacing.xs} ${spacing.sm}`,
     borderRadius: borderRadii.md,
     textDecoration: 'none',
-    display: 'inline-block'
+    display: 'inline-block',
+    border: 'none',
+    cursor: 'pointer'
   };
 
   const mobileInfoStyle: React.CSSProperties = {
     fontSize: fontSizes.xs,
     color: colors.gray500,
     display: 'block',
+    marginTop: spacing.xs,
   };
 
   return (
@@ -86,42 +89,56 @@ const PendingRequestsTable: React.FC<PendingRequestsTableProps> = ({ pendingRequ
             </tr>
           </thead>
           <tbody>
-            {pendingRequests.map((request, index) => (
-              <tr key={request.id} style={rowStyle(index)}>
-                <td style={tableCellStyle}>
-                  <div style={{ fontWeight: fontWeights.medium, color: colors.gray900 }}>{request.title}</div>
-                  <MediaQuery query="(max-width: 767px)">
-                    <div style={mobileInfoStyle}>
-                      {new Date(request.eventDate).toLocaleDateString('pt-BR')}
-                    </div>
-                  </MediaQuery>
-                </td>
-                <MediaQuery query="(min-width: 768px)">
-                  <td style={tableCellStyle}>
-                    <div style={{ color: colors.gray900 }}>{request.requesterName}</div>
-                    <div style={{ fontSize: fontSizes.xs, color: colors.gray500 }}>{request.requesterEmail}</div>
-                  </td>
-                  <td style={tableCellStyle}>
-                    <div style={{ color: colors.gray900 }}>{request.spaceName}</div>
-                    <div style={{ fontSize: fontSizes.xs, color: colors.gray500 }}>{request.attendees} pessoas</div>
-                  </td>
-                </MediaQuery>
-                <MediaQuery query="(min-width: 640px)">
-                  <td style={tableCellStyle}>
-                    <div style={{ color: colors.gray900 }}>{new Date(request.eventDate).toLocaleDateString('pt-BR')}</div>
-                    <div style={{ fontSize: fontSizes.xs, color: colors.gray500 }}>{request.startTime} - {request.endTime}</div>
-                  </td>
-                </MediaQuery>
-                <td style={tableCellStyle}>
-                  <RequestStatusBadge status={request.status} />
-                </td>
-                <td style={{...tableCellStyle, textAlign: 'right'}}>
-                  <Link to="/requests" style={buttonStyle}>
-                    Detalhes
-                  </Link>
+            {pendingRequests.length === 0 ? (
+              <tr>
+                <td colSpan={6}
+                    style={{ ...tableCellStyle, textAlign: 'center', padding: spacing.lg }}>
+                  Nenhuma solicitação pendente no momento.
                 </td>
               </tr>
-            ))}
+            ) : (
+              pendingRequests.map((request, index) => (
+                <tr key={request.id} style={rowStyle(index)}>
+                  <td style={tableCellStyle}>
+                    <div style={{ fontWeight: fontWeights.medium, color: colors.gray900 }}>{request.title}</div>
+                    <MediaQuery query="(max-width: 767px)">
+                      <div style={mobileInfoStyle}>
+                        Data: {request.eventDate ? new Date(request.eventDate + 'T00:00:00').toLocaleDateString('pt-BR') : 'N/A'}
+                      </div>
+                    </MediaQuery>
+                     <MediaQuery query="(max-width: 639px)">
+                      <div style={mobileInfoStyle}>
+                        Por: {request.requesterName}
+                      </div>
+                    </MediaQuery>
+                  </td>
+                  <MediaQuery query="(min-width: 768px)">
+                    <td style={tableCellStyle}>
+                      <div style={{ color: colors.gray900 }}>{request.requesterName}</div>
+                      <div style={{ fontSize: fontSizes.xs, color: colors.gray500 }}>{request.requesterEmail}</div>
+                    </td>
+                    <td style={tableCellStyle}>
+                      <div style={{ color: colors.gray900 }}>{request.spaceName}</div>
+                      <div style={{ fontSize: fontSizes.xs, color: colors.gray500 }}>{request.attendees} pessoas</div>
+                    </td>
+                  </MediaQuery>
+                  <MediaQuery query="(min-width: 640px)">
+                    <td style={tableCellStyle}>
+                      <div style={{ color: colors.gray900 }}>{request.eventDate ? new Date(request.eventDate + 'T00:00:00').toLocaleDateString('pt-BR') : 'N/A'}</div>
+                      <div style={{ fontSize: fontSizes.xs, color: colors.gray500 }}>{request.startTime} - {request.endTime}</div>
+                    </td>
+                  </MediaQuery>
+                  <td style={tableCellStyle}>
+                    <RequestStatusBadge status={request.status} />
+                  </td>
+                  <td style={{...tableCellStyle, textAlign: 'right'}}>
+                    <Link to={`/admin/requests/${request.id}`} style={buttonStyle}> 
+                      Detalhes
+                    </Link>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

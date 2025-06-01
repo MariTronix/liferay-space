@@ -5,9 +5,6 @@ type MediaQueryProps = {
   query: string;
 };
 
-/**
- * A component for conditionally rendering based on media queries
- */
 const MediaQuery: React.FC<MediaQueryProps> = ({ children, query }) => {
   const [matches, setMatches] = React.useState(false);
 

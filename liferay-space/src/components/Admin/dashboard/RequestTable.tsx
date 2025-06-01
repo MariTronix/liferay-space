@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Request } from '../../../types'; 
-import RequestStatusBadge from '../RequestStatusBadge'; 
+import React, { useState, useEffect } from 'react';
+import { Request } from '../../../types';
+import RequestStatusBadge from '../RequestStatusBadge';
 
 interface RequestTableProps {
   requests: Request[];
@@ -32,12 +32,13 @@ const RequestTable = ({ requests, onApprove, onReject, onEdit, onDetails }: Requ
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      flexWrap: 'wrap',
+      flexWrap: 'wrap', 
     },
     title: {
       fontSize: '18px',
       fontWeight: '600',
       color: '#1f2937',
+      marginBottom: '8px', 
     },
     tabsContainer: {
       display: 'flex',
@@ -46,22 +47,23 @@ const RequestTable = ({ requests, onApprove, onReject, onEdit, onDetails }: Requ
     tabButton: {
       padding: '8px 12px',
       fontSize: '14px',
-      border: '1px solid #d1d5db',
+      border: '1px solid #d1d5db', 
       borderRadius: '6px',
       backgroundColor: '#f9fafb',
       cursor: 'pointer',
+      color: '#374151', 
     },
     activeTab: {
       backgroundColor: '#3b82f6',
       color: 'white',
-      borderColor: '#3b82f6',
+      border: '1px solid #3b82f6', 
     },
     tableWrapper: {
       overflowX: 'auto',
     },
     table: {
       width: '100%',
-      borderCollapse: 'collapse',
+      borderCollapse: 'collapse', 
     },
     th: {
       padding: '12px 16px',
@@ -83,10 +85,12 @@ const RequestTable = ({ requests, onApprove, onReject, onEdit, onDetails }: Requ
     requesterSubtext: {
       fontSize: '12px',
       color: '#6b7280',
+      marginTop: '2px', 
     },
     actionsCell: {
       display: 'flex',
       gap: '8px',
+      alignItems: 'center', 
     },
     actionButton: {
       padding: '6px 12px',
@@ -95,12 +99,13 @@ const RequestTable = ({ requests, onApprove, onReject, onEdit, onDetails }: Requ
       border: 'none',
       borderRadius: '6px',
       cursor: 'pointer',
-      color: 'white',
+      color: 'white', 
+      transition: 'background-color 0.2s', 
     },
     approveBtn: { backgroundColor: '#10b981' },
     rejectBtn: { backgroundColor: '#ef4444' },
     editBtn: { backgroundColor: '#3b82f6' },
-    detailsBtn: { backgroundColor: '#e5e7eb', color: '#374151' },
+    detailsBtn: { backgroundColor: '#e5e7eb', color: '#374151' }, 
   } as const;
 
   return (
@@ -108,14 +113,15 @@ const RequestTable = ({ requests, onApprove, onReject, onEdit, onDetails }: Requ
       <div style={styles.header}>
         <h2 style={styles.title}>Solicitações</h2>
         <div style={styles.tabsContainer}>
-          <button onClick={() => setFilter('all')} style={{...styles.tabButton, ...(filter === 'all' && styles.activeTab)}}>Todas</button>
-          <button onClick={() => setFilter('pending')} style={{...styles.tabButton, ...(filter === 'pending' && styles.activeTab)}}>Pendentes</button>
-          <button onClick={() => setFilter('approved')} style={{...styles.tabButton, ...(filter === 'approved' && styles.activeTab)}}>Aprovadas</button>
-          <button onClick={() => setFilter('rejected')} style={{...styles.tabButton, ...(filter === 'rejected' && styles.activeTab)}}>Rejeitadas</button>
+          <button onClick={() => setFilter('all')} style={{...styles.tabButton, ...(filter === 'all' ? styles.activeTab : {})}}>Todas</button>
+          <button onClick={() => setFilter('pending')} style={{...styles.tabButton, ...(filter === 'pending' ? styles.activeTab : {})}}>Pendentes</button>
+          <button onClick={() => setFilter('approved')} style={{...styles.tabButton, ...(filter === 'approved' ? styles.activeTab : {})}}>Aprovadas</button>
+          <button onClick={() => setFilter('rejected')} style={{...styles.tabButton, ...(filter === 'rejected' ? styles.activeTab : {})}}>Rejeitadas</button>
         </div>
       </div>
       <div style={styles.tableWrapper}>
         <table style={styles.table}>
+          {/* ... Thead ... */}
           <thead>
             <tr>
               <th style={styles.th}>Evento</th>
@@ -127,36 +133,44 @@ const RequestTable = ({ requests, onApprove, onReject, onEdit, onDetails }: Requ
             </tr>
           </thead>
           <tbody>
-            {filteredRequests.map((request) => (
-              <tr key={request.id}>
-                <td style={styles.td}>{request.title}</td>
-                <td style={styles.td}>
-                  <div>{request.requesterName}</div>
-                  <div style={styles.requesterSubtext}>{request.requesterEmail}</div>
-                </td>
-                <td style={styles.td}>
-                  <div>{request.spaceName}</div>
-                  <div style={styles.requesterSubtext}>{request.attendees} pessoas</div>
-                </td>
-                <td style={styles.td}>
-                  <div>{new Date(request.eventDate).toLocaleDateString('pt-BR')}</div>
-                  <div style={styles.requesterSubtext}>{request.startTime} - {request.endTime}</div>
-                </td>
-                <td style={styles.td}><RequestStatusBadge status={request.status} /></td>
-                <td style={styles.td}>
-                  <div style={styles.actionsCell}>
-                    {request.status === 'pending' && (
-                      <>
-                        <button onClick={() => onApprove(request.id)} style={{...styles.actionButton, ...styles.approveBtn}}>Aprovar</button>
-                        <button onClick={() => onReject(request.id)} style={{...styles.actionButton, ...styles.rejectBtn}}>Rejeitar</button>
-                      </>
-                    )}
-                    <button onClick={() => onEdit(request)} style={{...styles.actionButton, ...styles.editBtn}}>Editar</button>
-                    <button onClick={() => onDetails(request)} style={{...styles.actionButton, ...styles.detailsBtn}}>Detalhes</button>
-                  </div>
+            {filteredRequests.length === 0 ? (
+              <tr>
+                <td colSpan={6} style={{...styles.td, textAlign: 'center', color: '#6b7280'}}>
+                  Nenhuma solicitação encontrada para este filtro.
                 </td>
               </tr>
-            ))}
+            ) : (
+              filteredRequests.map((request) => (
+                <tr key={request.id}>
+                  <td style={styles.td}>{request.title}</td>
+                  <td style={styles.td}>
+                    <div>{request.requesterName}</div>
+                    <div style={styles.requesterSubtext}>{request.requesterEmail}</div>
+                  </td>
+                  <td style={styles.td}>
+                    <div>{request.spaceName}</div>
+                    <div style={styles.requesterSubtext}>{request.attendees} pessoas</div>
+                  </td>
+                  <td style={styles.td}>
+                    <div>{request.eventDate ? new Date(request.eventDate + 'T00:00:00').toLocaleDateString('pt-BR') : 'N/A'}</div>
+                    <div style={styles.requesterSubtext}>{request.startTime} - {request.endTime}</div>
+                  </td>
+                  <td style={styles.td}><RequestStatusBadge status={request.status} /></td>
+                  <td style={styles.td}>
+                    <div style={styles.actionsCell}>
+                      {request.status === 'pending' && (
+                        <>
+                          <button onClick={() => onApprove(request.id)} style={{...styles.actionButton, ...styles.approveBtn}} aria-label={`Aprovar ${request.title}`}>Aprovar</button>
+                          <button onClick={() => onReject(request.id)} style={{...styles.actionButton, ...styles.rejectBtn}} aria-label={`Rejeitar ${request.title}`}>Rejeitar</button>
+                        </>
+                      )}
+                      <button onClick={() => onEdit(request)} style={{...styles.actionButton, ...styles.editBtn}} aria-label={`Editar ${request.title}`}>Editar</button>
+                      <button onClick={() => onDetails(request)} style={{...styles.actionButton, ...styles.detailsBtn}} aria-label={`Detalhes de ${request.title}`}>Detalhes</button>
+                    </div>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router-dom';
 export const InfoSection = () => {
   const navigate = useNavigate();
   const spacesPage = () => {
-      navigate('/SpacesPage'); // Rota interna
+      navigate('/SpacesPage'); 
     };
   const formPage = () => {
-      navigate('/forms'); // Rota interna
+      navigate('/forms');
     };
   return (
     <div className={styles.container}>

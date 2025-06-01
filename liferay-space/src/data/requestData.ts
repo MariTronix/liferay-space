@@ -1,6 +1,5 @@
 import { Request } from '../types';
 
-// Mock data for the requests table
 export const mockRequests: Request[] = [
   {
     id: '1',
@@ -62,4 +61,16 @@ export const mockRequests: Request[] = [
     description: 'Evento de networking com empresários locais, incluindo coquetel, apresentações curtas e oportunidades para conexões profissionais. Ideal para expandir sua rede de contatos.',
     createdAt: '2025-05-04'
   },
+];
+
+export const spaces: Space[] = [
+  { id: "1", name: "Pangeia", capacity: 10, category: "sala" },
+  { id: "2", name: "Elementos", capacity: 25, category: "sala" },
+  { id: "3", name: "Beleza", capacity: 5, category: "sala" },
+  { id: "4", name: "Amor", capacity: 5, category: "sala" },
+  { id: "5", name: "Vaidade", capacity: 5, category: "sala" },
+  { id: "6", name: "Essência", capacity: 5, category: "sala" },
+  { id: "7", name: "Auditório", capacity: 180, category: "auditorio" },
+  { id: "8", name: "Varanda", capacity: 400, category: "varanda" },
+  { id: "9", name: "Sala de jogos", capacity: 45, category: "sala_jogos" }
 ];

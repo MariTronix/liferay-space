@@ -25,8 +25,8 @@ const NotFound = () => {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: TAILWIND_GRAY_100,
-    padding: '1rem', // Equivalente a p-4
-    fontFamily: 'sans-serif', // Adicionando uma fonte base
+    padding: '1rem',
+    fontFamily: 'sans-serif',
   };
 
   const cardStyle = {
@@ -34,7 +34,7 @@ const NotFound = () => {
     maxWidth: '28rem',
     backgroundColor: '#ffffff',
     borderRadius: '0.5rem',
-    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)', // Equivalente a shadow-md
+    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)', 
     padding: '2rem',
     textAlign: 'center',
   };

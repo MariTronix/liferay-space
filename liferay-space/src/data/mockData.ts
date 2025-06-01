@@ -57,7 +57,6 @@ export const requests: Request[] = Array.from({ length: 30 }, (_, i) => {
   };
 });
 
-// Generate events data
 export const events: EventData[] = requests
   .filter(req => req.status === "approved")
   .map(req => {
