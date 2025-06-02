@@ -31,7 +31,7 @@ const pageWrapperStyle: React.CSSProperties = {
 };
 const mainContentStyle: React.CSSProperties = {
   flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'flex-start',
-  paddingTop: '8rem', paddingLeft: '1rem', paddingRight: '1rem', paddingBottom: '3rem',
+  paddingTop: '10rem', paddingLeft: '1rem', paddingRight: '1rem', paddingBottom: '3rem',
 };
 const formContainerStyle: React.CSSProperties = { width: '100%', maxWidth: '64rem' };
 const formHeaderStyle: React.CSSProperties = { textAlign: 'center', marginBottom: '2.5rem' };

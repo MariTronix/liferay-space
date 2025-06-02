@@ -1,91 +1,182 @@
-*{
-    font-family: 'Source Sans Pro';
-}
-.header{
+/* Idealmente, esta regra global estaria em um arquivo CSS separado e não em um CSS Module */
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  
+  .header {
     margin: 0;
-    padding: 0 12rem;
+    padding: 0 12rem; /* Desktop padding */
     font-weight: bold;
     position: fixed;
     width: 100%;
+    box-sizing: border-box;
     top: 0;
     left: 0;
-    background-color: var(--white);
+    background-color: var(--white, #ffffff);
     z-index: 999;
-    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
-}
-.header hr{
-    border: none;
-    border-top: 1px solid var(--secundary-L5);
-}
-
-.upperHeader p, span{
-    color: var(--secundary-default);
-    margin: 0;
-    padding: 0;
-    font-size: 1.15rem;
-    display: inline-flex;
-}
-
-.upperHeader span, button span{
-    margin-left: 0.75rem;
-}
-
-.upperHeader{
-    margin-top: 0.3rem;
-    padding-bottom: 0.275rem;
-    display: flex;
-    justify-content: space-between;
-}
-.upperHeader > div{
-    display: inline-flex;
-}
-
-.upperHeader div{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Removi .upperHeader e .header hr daqui, pois você os removeu do JSX.
+     Se você os adicionar de volta, precisará dos estilos para eles. */
+  
+  /* Lower Header */
+  .lowerHeader {
+    padding: 0.75rem 0;
     display: flex;
     align-items: center;
-}
-
-.header button{
-    font-size: 1.15rem;
-    display: inline-flex;
-    margin: 0 0.25rem;
-    background-color: var(--white);
+    justify-content: space-between;
+  }
+  
+  .logoButton {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-left: -0.5rem;
+    cursor: pointer;
+    line-height: 0;
+  }
+  .logoButton:hover {
+    opacity: 0.85;
+  }
+  
+  .logoImage {
+    width: 10rem;
+    height: 3.25rem;
+    display: block;
+  }
+  
+  .icon { /* Ícone usado no botão do menu hambúrguer */
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    display: block;
+  }
+  
+  /* --- CONTROLE DE VISIBILIDADE DA NAVEGAÇÃO --- */
+  
+  /* Navegação Principal - VISÍVEL NO DESKTOP por padrão */
+  .mainNav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .mainNav a {
+    text-decoration: none;
+    color: var(--text-primary, #333333);
+    font-weight: bold;
+    font-size: 1.05rem;
+    padding: 0.25rem 0;
+    transition: color 0.15s ease;
+  }
+  .mainNav a:hover {
+    color: var(--primary-color, #007bff);
+  }
+  
+  /* Botão do Menu Hambúrguer - ESCONDIDO NO DESKTOP por padrão */
+  .mobileMenuButton {
+    display: none; /* ESTA REGRA OCULTA NO DESKTOP */
+    background: none;
     border: none;
     cursor: pointer;
-    transition: background-color 0.15s ease,  color 0.15s ease;
-    padding: 0.5rem 0.75rem;
-    border-radius: 5px;
-    align-self: flex-end;
-}
-
-.upperHeader button:hover{
-    background-color: var(--blue-l4);
-    color: var(--blue-d1);
-    outline: 3px solid var(--blue-l2);
-    outline-offset: 3px; 
-    
-}
-
-.lowerHeader{
-    margin: 0.5rem 0;
-    padding-top: 0.275rem;
+    padding: 0.5rem;
+    /* Adicionado para garantir área de toque */
+    min-width: 44px; 
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* --- Media Queries para Responsividade --- */
+  
+  /* Tablets e Telas Médias (ex: <= 1024px) */
+  @media (max-width: 1024px) {
+    .header {
+      padding: 0 4rem;
+    }
+    .logoImage {
+      width: 8.5rem;
+      height: auto;
+    }
+    .mainNav {
+      gap: 1.5rem;
+    }
+    .mainNav a {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Tablets em modo retrato e Celulares Maiores (ex: <= 768px) */
+  /* ESTA É A MEDIA QUERY CHAVE PARA MOSTRAR O MENU HAMBÚRGUER */
+  @media (max-width: 768px) {
+    .header {
+      padding: 0 1.5rem;
+    }
+    .mainNav {
+      display: none; /* ESCONDER navegação principal no mobile */
+    }
+    .mobileMenuButton {
+      display: flex; /* MOSTRAR botão de menu hambúrguer no mobile */
+      /* align-items: center; /* Já definido na regra base */
+      /* justify-content: center; /* Já definido na regra base */
+    }
+    .logoImage {
+      width: 7.5rem;
+    }
+    .lowerHeader {
+      padding: 0.6rem 0;
+    }
+  }
+  
+  /* Celulares Pequenos (ex: <= 480px) */
+  @media (max-width: 480px) {
+    .header {
+      padding: 0 1rem;
+    }
+    /* Se você removeu .upperHeader e hr do JSX, estas regras não são mais necessárias */
+    /* .upperHeader, .header hr { 
+      display: none;
+    } */
+  
+    .lowerHeader {
+      padding: 0.8rem 0;
+    }
+    .logoImage {
+      width: 6.5rem;
+    }
+    .icon { /* Ícone do menu hambúrguer pode ser ajustado se necessário */
+      width: 22px;
+      height: 22px;
+    }
+  }
+  
+  /* Menu Mobile Dropdown (quando aberto via JS) */
+  .mobileMenu {
     display: flex;
-    align-items: flex-end;
-}
-.lowerHeader button{
-    width: 10rem;
-    height: 3.25rem;
-    margin-left: -0.5rem;
-    padding: 0;
-    border-radius: 1px;
-}
-.lowerHeader button:hover{
-    background-color: var(--blue-l4);
-    color: var(--blue-d1);
-    outline: 3px solid var(--blue-l2);
-    outline-offset: 3px; 
-}
-.lowerHeader button img{
-    width: 10rem;
-    height: 3.25rem;
-}
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Posicionado abaixo do header */
+    left: 0;
+    width: 100%;
+    background-color: var(--white, #ffffff);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    border-top: 1px solid var(--secundary-L5, #eeeeee);
+    z-index: 998; /* Garante que fique acima do conteúdo da página mas abaixo do header fixo */
+  }
+  
+  .mobileMenu a {
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: var(--text-primary, #333333);
+    font-weight: bold;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--secundary-L5, #eeeeee);
+    transition: background-color 0.15s ease;
+  }
+  .mobileMenu a:last-child {
+    border-bottom: none;
+  }
+  .mobileMenu a:hover {
+    background-color: var(--secundary-L5, #f0f0f0);
+  }

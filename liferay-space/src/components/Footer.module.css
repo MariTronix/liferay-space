@@ -1,65 +1,184 @@
-.footer{
+/* Estilos Globais para o Footer (Desktop First) */
+.footer {
     padding: 2.5rem;
     margin: 3rem 12rem 0 12rem;
     font-weight: bold;
-    background-color: var(--secundary-L5);
+    background-color: var(--secundary-L5, #f0f0f0); /* Cor de fallback */
     border-radius: 10px;
     font-size: 1.15rem;
-}
-.footer img{
+    color: var(--text-primary, #333);
+  }
+  
+  .footer img {
     width: 10rem;
-    height: 3.25rem;
-    margin-left: -0.5rem;
+    height: auto; /* Melhor para manter a proporção */
+    margin-left: -0.5rem; /* Conforme original */
     padding: 0;
     border-radius: 1px;
-}
-
-
-.footer-content{
+    display: block; /* Para melhor controle de layout da imagem */
+  }
+  
+  .footer-content {
     display: flex;
     justify-content: space-between;
-    gap: 5.5rem;
-}
-
-
-
-.footer__info-Company{
-    gap: 1rem;
+    gap: 3rem; /* Espaçamento entre as colunas do footer */
+  }
+  
+  .footer__info-Company {
     width: 40%;
     display: flex;
     flex-direction: column;
-}
-
-
-
-.footer-navigation{
+    gap: 1rem; /* Espaçamento entre a logo e os parágrafos */
+  }
+  .footer__info-Company p {
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  .footer-navigation {
     width: 25%;
     display: flex;
     flex-direction: column;
-}
-.footer-navigation h3{
-    margin-bottom: 1rem;
-}
-.footer-navigation a{
-    color: var(--black);
-}
-
-
-
-.footer-contact{
+    gap: 0.75rem; /* Espaçamento entre o título e os links, e entre os links */
+  }
+  
+  .footer-navigation h3 {
+    margin-bottom: 0.25rem; /* Pequena margem abaixo do título, complementando o gap */
+    font-size: 1.2rem;
+  }
+  
+  .footer-navigation a {
+    color: var(--black, #000); /* Cor de fallback */
+    text-decoration: none;
+    padding: 0.25rem 0;
+  }
+  .footer-navigation a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-contact {
     width: 20%;
     display: flex;
     flex-direction: column;
-}
-.footer-contact__item{
+  }
+  
+  .footer-contact h3 { /* Estilizando o h3 diretamente, já que tem a classe item */
+    font-size: 1.2rem;
+  }
+  
+  .footer-contact__item { /* Aplicado ao h3 e às divs de contato */
     margin-bottom: 1rem;
-}
-
-
-.footer-rights{
+  }
+  .footer-contact__item:last-child {
+    margin-bottom: 0; /* Remove a margem do último item dentro de .footer-contact */
+  }
+  .footer-contact p {
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  
+  /* Linha horizontal */
+  .footer hr {
+    border: none;
+    height: 1px;
+    background-color: var(--black, #333);
+    opacity: 0.2;
+    margin: 2.5rem 0;
+  }
+  
+  .footer-rights {
     text-align: center;
     width: 100%;
-}
-
-
-
+    font-size: 0.9rem;
+    color: var(--text-secondary, #555);
+  }
+  
+  /* --- Media Queries para Responsividade --- */
+  
+  /* Tablets e Telas Médias (ex: <= 1024px) */
+  @media (max-width: 1024px) {
+    .footer {
+      margin: 2.5rem 4rem 0 4rem; /* Reduzir margens laterais */
+      padding: 2rem;
+    }
+  
+    .footer-content {
+      gap: 2rem; /* Diminuir o espaçamento entre colunas */
+    }
+  
+    .footer__info-Company {
+      width: 38%;
+    }
+    .footer-navigation {
+      width: 28%;
+    }
+    .footer-contact {
+      width: 28%;
+    }
+  }
+  
+  /* Tablets em modo retrato e Celulares Maiores (ex: <= 768px) */
+  @media (max-width: 768px) {
+    .footer {
+      margin: 2rem 1.5rem 0 1.5rem; /* Margens menores */
+      padding: 1.5rem;
+      font-size: 1rem; /* Ajustar tamanho da fonte base */
+    }
+  
+    .footer-content {
+      flex-direction: column; /* Empilhar as seções */
+      align-items: flex-start; /* Alinhar itens à esquerda por padrão */
+      gap: 2.5rem; /* Espaçamento entre as seções empilhadas */
+    }
+  
+    .footer__info-Company,
+    .footer-navigation,
+    .footer-contact {
+      width: 100%; /* Cada seção ocupa a largura total */
+    }
+  
+    .footer img {
+      margin-left: 0; /* Centralizar ou alinhar à esquerda, remover margem negativa se não aplicável */
+    }
+  
+    /* Opcional: Centralizar o texto dentro das seções no mobile */
+    /*
+    .footer__info-Company,
+    .footer-navigation,
+    .footer-contact,
+    .footer-navigation a {
+      text-align: center;
+      align-items: center; // Para flex items
+    }
+    .footer img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    */
+  }
+  
+  /* Celulares Pequenos (ex: <= 480px) */
+  @media (max-width: 480px) {
+    .footer {
+      margin: 1.5rem 1rem 0 1rem;
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+  
+    .footer-content {
+      gap: 2rem; /* Ajustar espaçamento */
+    }
+  
+    .footer img {
+      width: 8rem; /* Reduzir um pouco o tamanho da logo */
+    }
+  
+    .footer hr {
+      margin: 2rem 0;
+    }
+  
+    .footer-rights {
+      font-size: 0.85rem;
+    }
+  }

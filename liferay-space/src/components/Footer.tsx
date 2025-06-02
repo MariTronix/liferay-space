@@ -1,14 +1,14 @@
 import styles from './Footer.module.css';
-import logo from '../assets/imgLogos/liferay-logo.png';
+import logo from '../assets/imgLogos/liferay-logo.png'; // Certifique-se que este caminho está correto
 
-export function Footer(){
+export function Footer() {
     const simbolo = ">";
-    return(
+    return (
         <div className={styles.footer}>
             <div className={styles['footer-content']}>
                 <div className={styles['footer__info-Company']}>
                     <img src={logo} alt="Liferay logo" />
-                    <p>Liferay Spaces é uma iniciativa para fortalecer o ecossistema de tecnologia de Recife e promover a colaboração entre comunidades, 
+                    <p>Liferay Spaces é uma iniciativa para fortalecer o ecossistema de tecnologia de Recife e promover a colaboração entre comunidades,
                         universidades e projetos sociais.
                     </p>
                     <p>www.liferay.com</p>
