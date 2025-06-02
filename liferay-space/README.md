@@ -71,30 +71,29 @@ Antes de começar, garanta que você possui:
 ## Instalação e Build
 
 1.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/MariTronix/liferay-space.git](https://github.com/MariTronix/liferay-space.git)
-    cd liferay-space
-    ```
+    ```bash
+    git clone [https://github.com/MariTronix/liferay-space.git](https://github.com/MariTronix/liferay-space.git)
+    cd liferay-space
+    ```
 
 2.  **Navegue até o diretório do módulo:**
-    ```bash
-    cd liferay-space
-    ```
-    *(Este é o diretório que contém o `package.json`)*
+    ```bash
+    cd liferay-space
+    ```
+    *(Este é o diretório que contém o `package.json`)*
 
 3.  **Instale as dependências do frontend:**
-    ```bash
-    npm install
-    # OU
-    # yarn install
-    ```
+    ```bash
+    npm install
+    # OU
+    # yarn install
+    ```
 
 4.  **Construa o módulo (Build):**
-    Verifique os scripts no `package.json`. Um comando comum com Vite é:
-    ```bash
-    npm run build
-    ```
-    Este passo deve gerar os arquivos estáticos otimizados na pasta `dist/` e, dependendo da configuração para Liferay, pode envolver passos adicionais para empacotar como um módulo Liferay (ex: usando `liferay-npm-bundler` ou similar, se configurado).
+    Verifique os scripts no `package.json`. Um comando comum com Vite é:
+    ```bash
+    npm run dev
+    ```
 
 ## Como Usar
 
