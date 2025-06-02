@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/146d1bb7-88ae-47d0-ad74-e9198dd3a190)# Liferay Spaces - Portal de Gerenciamento de Espaços para Eventos
+# Liferay Spaces - Portal de Gerenciamento de Espaços para Eventos
 
 Este projeto foi desenvolvido pela Squad 14 da turma do 2º periodo da Faculdade Católica Imaculada Conceição do Recife em parceria com a Liferay e visa solucionar a falta de um portal centralizado 
 para divulgar e administrar reservas dos espaços do escritório da Liferay em Recife. O objetivo é transformar processos manuais, demorados e pouco eficientes em uma experiência 
