@@ -94,7 +94,6 @@ Antes de começar, garanta que você possui:
     ```bash
     npm run dev
     ```
-
 ## Como Usar
 
 Após a implantação bem-sucedida:
@@ -195,30 +194,29 @@ Antes de começar, garanta que você possui:
 ## Instalação e Build
 
 1.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/MariTronix/liferay-space.git](https://github.com/MariTronix/liferay-space.git)
-    cd liferay-space
-    ```
+    ```bash
+    git clone [https://github.com/MariTronix/liferay-space.git](https://github.com/MariTronix/liferay-space.git)
+    cd liferay-space
+    ```
 
 2.  **Navegue até o diretório do módulo:**
-    ```bash
-    cd liferay-space
-    ```
-    *(Este é o diretório que contém o `package.json`)*
+    ```bash
+    cd liferay-space
+    ```
+    *(Este é o diretório que contém o `package.json`)*
 
 3.  **Instale as dependências do frontend:**
-    ```bash
-    npm install
-    # OU
-    # yarn install
-    ```
+    ```bash
+    npm install
+    # OU
+    # yarn install
+    ```
 
 4.  **Construa o módulo (Build):**
-    Verifique os scripts no `package.json`. Um comando comum com Vite é:
-    ```bash
-    npm run build
-    ```
-    Este passo deve gerar os arquivos estáticos otimizados na pasta `dist/` e, dependendo da configuração para Liferay, pode envolver passos adicionais para empacotar como um módulo Liferay (ex: usando `liferay-npm-bundler` ou similar, se configurado).
+    Verifique os scripts no `package.json`. Um comando comum com Vite é:
+    ```bash
+    npm run dev
+    ```
 
 ## Implantação (Deploy) no Liferay
 
@@ -247,13 +245,15 @@ Após a implantação bem-sucedida:
 
 | Foto                                                                 | Nome                                           | GitHub                                                       |
 | :------------------------------------------------------------------: | :--------------------------------------------- | :-----------------------------------------------------------: |
-| Foto não fornecida                                                   | Danilo André Dias de Assis Santana             | [DaniloNero](https://github.com/DaniloNero)                    |
+| ![Imagem do WhatsApp de 2025-06-02 à(s) 20 18 17_683f896e](https://github.com/user-attachments/assets/5aa738af-7170-45e9-9894-3e8f2702798d)
+                                                | Danilo André Dias de Assis Santana             | [DaniloNero](https://github.com/DaniloNero)                    |
 | <img src="https://avatars.githubusercontent.com/u/146151483?v=4" width="100" alt="Arthur Antunes Alves de Moura"/> | Arthur Antunes Alves de Moura                  | [Arthur-antunes98](https://github.com/Arthur-antunes98)        |
-| Foto não fornecida                                                   | Guilherme Cauã Gonzalez Cintra Regis         | *GitHub não fornecido* |
-| Foto não fornecida                                                   | Kauã Felipe Souza da Silva                     | [KauaOliveira17](https://github.com/KauaOliveira17)            |
+| -                                                   | Guilherme Cauã Gonzalez Cintra Regis         | - |
+| -                                                 | Kauã Felipe Souza da Silva                     | [KauaOliveira17](https://github.com/KauaOliveira17)            |
 | <img src="https://avatars.githubusercontent.com/u/181266574?v=4" width="100" alt="Guilherme Lira Torres de Souza"/> | Guilherme Lira Torres de Souza               | [guiLira04](https://github.com/guiLira04)                      |
-| Foto não fornecida                                                   | Jhonata Marcelino da Silva                   | *GitHub não fornecido* |
-| Foto não fornecida                                                   | Carolina Melo Silva de Oliveira                | [Carolina-0701](https://github.com/Carolina-0701)              |
+| <img src="https://avatars.githubusercontent.com/u/191589441?v=4" width="100" alt="Jhonata Marcelino da Silva"/>                                                  | Jhonata Marcelino da Silva                   | [Jhonydev21](https://github.com/Jhonydev21) |
+| -                                                  | Carolina Melo Silva de Oliveira                | [Carolina-0701](https://github.com/Carolina-0701)              |
 | <img src="https://avatars.githubusercontent.com/u/98923335?v=4" width="100" alt="Mariana Mendes de Lima"/> | Mariana Mendes de Lima (Mantenedora)         | [MariTronix](https://github.com/MariTronix)                    |
 | <img src="https://avatars.githubusercontent.com/u/183922350?v=4" width="100" alt="Marcos Paulo Oliveira da Silva Júnior"/> | Marcos Paulo Oliveira da Silva Júnior          | [Marcopolojr360](https://github.com/Marcopolojr360)            |
 | <img src="https://avatars.githubusercontent.com/u/157994507?v=4" width="100" alt="Luan Richard Paes Teixeira"/> | Luan Richard Paes Teixeira                     | [luanrichardsz](https://github.com/luanrichardsz)              |
+
