@@ -105,7 +105,7 @@ Antes de começar, garanta que você possui:
 
 | Foto                                                                 | Nome                                           | GitHub                                                       |
 | :------------------------------------------------------------------: | :--------------------------------------------- | :-----------------------------------------------------------: |
-|  <img src="https://avatars.githubusercontent.com/u/146151483?v=4" width="100" alt="Danilo André Dias de Assis Santana"/>                                              | Danilo André Dias de Assis Santana             | [DaniloNero](https://github.com/DaniloNero)                    |
+|  <img src="blob:https://web.whatsapp.com/78fb19bb-bffc-471c-8e00-fbd3dea52557" width="100" alt="Danilo André Dias de Assis Santana"/>                                              | Danilo André Dias de Assis Santana             | [DaniloNero](https://github.com/DaniloNero)                    |
 | <img src="https://avatars.githubusercontent.com/u/146151483?v=4" width="100" alt="Arthur Antunes Alves de Moura"/> | Arthur Antunes Alves de Moura                  | [Arthur-antunes98](https://github.com/Arthur-antunes98)        |
 | -                                                   | Guilherme Cauã Gonzalez Cintra Regis         | - |
 | -                                                 | Kauã Felipe Souza da Silva                     | [KauaOliveira17](https://github.com/KauaOliveira17)            |
