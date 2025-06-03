@@ -1,4 +1,4 @@
-# Liferay Spaces - Portal de Gerenciamento de Espaços para Eventos
+![fd6fa030-7dc5-43d3-8fbc-8804c9ad77d7](https://github.com/user-attachments/assets/f251bd62-471a-4ee3-9c65-7934b5aa80d6)# Liferay Spaces - Portal de Gerenciamento de Espaços para Eventos
 
 Este projeto foi desenvolvido pela Squad 14 da turma do 2º periodo da Faculdade Católica Imaculada Conceição do Recife em parceria com a Liferay e visa solucionar a falta de um portal centralizado 
 para divulgar e administrar reservas dos espaços do escritório da Liferay em Recife. O objetivo é transformar processos manuais, demorados e pouco eficientes em uma experiência 
@@ -105,7 +105,8 @@ Antes de começar, garanta que você possui:
 
 | Foto                                                                 | Nome                                           | GitHub                                                       |
 | :------------------------------------------------------------------: | :--------------------------------------------- | :-----------------------------------------------------------: |
-|  <img src="https://web.whatsapp.com/78fb19bb-bffc-471c-8e00-fbd3dea52557" width="100" alt="Danilo André Dias de Assis Santana"/>                                              | Danilo André Dias de Assis Santana             | [DaniloNero](https://github.com/DaniloNero)                    |
+|  <img src="![fd6fa030-7dc5-43d3-8fbc-8804c9ad77d7](https://github.com/user-attachments/assets/d7c3145c-1370-4073-9698-d31189c2393f)
+" width="100" alt="Danilo André Dias de Assis Santana"/>                                              | Danilo André Dias de Assis Santana             | [DaniloNero](https://github.com/DaniloNero)                    |
 | <img src="https://avatars.githubusercontent.com/u/146151483?v=4" width="100" alt="Arthur Antunes Alves de Moura"/> | Arthur Antunes Alves de Moura                  | [Arthur-antunes98](https://github.com/Arthur-antunes98)        |
 | -                                                   | Guilherme Cauã Gonzalez Cintra Regis         | - |
 | -                                                 | Kauã Felipe Souza da Silva                     | [KauaOliveira17](https://github.com/KauaOliveira17)            |
