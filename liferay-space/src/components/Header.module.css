@@ -29,15 +29,19 @@
   }
   
   .logoButton {
-    background-color: transparent !important;
+    background-color: transparent;
     border: none !important;
     padding: 0 !important;
     margin-left: -0.5rem;
     cursor: pointer;
     line-height: 0;
+    border-radius: 8px;
   }
   .logoButton:hover {
     opacity: 0.85;
+    background-color: var(--background-button);
+    outline: 2px solid var(--blue-l2);
+    outline-offset: 1px; 
   }
   
   .logoImage {
@@ -63,15 +67,19 @@
   }
   
   .mainNav a {
-    text-decoration: none;
     color: var(--text-primary, #333333);
     font-weight: bold;
     font-size: 1.05rem;
-    padding: 0.25rem 0;
-    transition: color 0.15s ease;
+    padding: 0.45rem 0.75rem;
+    transition: color 0.15s ease, background-color 0.15s ease;
+    border-radius: 8px;
   }
   .mainNav a:hover {
-    color: var(--primary-color, #007bff);
+    color: var(--blue-d1);
+    background-color: var(--background-button);
+    text-decoration: none;
+    outline: 2px solid var(--blue-l2);
+    outline-offset: 1px; 
   }
   
   /* Botão do Menu Hambúrguer - ESCONDIDO NO DESKTOP por padrão */

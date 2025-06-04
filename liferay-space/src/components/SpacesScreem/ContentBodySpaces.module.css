@@ -19,3 +19,29 @@
     outline-offset: 3px;
     background: linear-gradient(45deg, var(--blue-l4) 20%, var(--blue-l3) );
 }
+
+
+
+@media (max-width: 1024px){
+
+    .contentBodySpaces{
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .contentBodySpaces > div{
+        height: 30rem;
+        width: 24rem;
+        border-radius: 8px;
+        margin: 2rem;
+        background-color: var(--blue-l4);
+        align-items: center;
+    }
+
+    .contentBodySpaces > div:hover{
+        outline: 3px solid var(--blue-l2);
+        outline-offset: 3px;
+        background: linear-gradient(45deg, var(--blue-l4) 20%, var(--blue-l3) );
+    }
+}

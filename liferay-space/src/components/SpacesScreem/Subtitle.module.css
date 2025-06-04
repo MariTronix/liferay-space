@@ -15,4 +15,23 @@
 .subtitle p{
     font-weight: bold;
     font-size: 2rem;
+    text-align: center;
 }
+
+
+@media (max-width: 1024px){
+    .subtitle{
+        margin-top: 5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .subtitle h2{
+        font-size: 3rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .subtitle p{
+        font-size: 1.5rem;
+    }
+}
+

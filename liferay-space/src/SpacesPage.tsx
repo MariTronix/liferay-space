@@ -10,7 +10,6 @@ export const SpacesPage = () => {
         <>
             <Header/>
             <BodySpacesPage />
-            <Testimonials />
             <WhySection />
             <Footer/>
         </>
