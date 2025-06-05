@@ -2,14 +2,23 @@ import styles from './FirstContent.module.css';
 import img1 from '../../assets/imgSalas/auditorio1.jpg';
 import img2 from '../../assets/imgSalas/salaPangeia2.jpg';
 import img3 from '../../assets/imgSalas/salaMontanha.jpg';
-import {FaLongArrowAltRight} from 'react-icons/fa';
+import { FaLongArrowAltRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+
+const carouselImages = [
+  { src: img1, alt: "Visão do Auditório Liferay Spaces Recife" },
+  { src: img2, alt: "Sala de Reunião Pangeia no Liferay Spaces" },
+  { src: img3, alt: "Sala de Reunião Montanha no Liferay Spaces" },
+];
 
 export const FirstContent = () => {
   const navigate = useNavigate();
   const spacesPage = () => {
-      navigate('/SpacesPage');
-    };
+    navigate('/SpacesPage');
+  };
+
   return (
     <section className={styles.firstContent}>
       <div className={styles.firstContentTextContainer}>
@@ -19,22 +28,31 @@ export const FirstContent = () => {
         </h1>
         <p className={styles.firstContentDescription}>
           Mais que um espaço de trabalho, é um ambiente inspirador com salas modernas e confortáveis, 
-          ideal para eventos e conexões comunitárias       
+          ideal para eventos e conexões comunitárias
         </p>
-        <button onClick={spacesPage}>
-          Conheça nossos espaços <span><FaLongArrowAltRight /></span>
+        <button onClick={spacesPage} className={styles.ctaButton}>
+          Conheça nossos espaços <span className={styles.arrowIcon}><FaLongArrowAltRight /></span>
         </button>
       </div>
-      <div className={styles.firstContentImagesGrid}>
-        <div className={styles.firstContentImageWrapper1}>
-          <img src={img1} alt="Espaço 1" className={styles.firstContentImage} />
+
+      <div className={styles.firstContentCarouselContainer}>
+        <Carousel
+          showArrows={true}      
+          showThumbs={false}     
+          showStatus={false}     
+          infiniteLoop={true}    
+          autoPlay={true}        
+          interval={5000}        
+          swipeable={true}       
+          emulateTouch={true}    
+          className={styles.mainCarouselWrapper} 
+        >
+          {carouselImages.map((image, index) => (
+            <div key={index} className={styles.carouselSlideItem}>
+              <img src={image.src} alt={image.alt} className={styles.carouselImageStyle} />
         </div>
-        <div className={styles.firstContentImageWrapper2}>
-          <img src={img2} alt="Espaço 2" className={styles.firstContentImage} />
-        </div>
-        <div className={styles.firstContentImageWrapper3}>
-          <img src={img3} alt="Espaço 3" className={styles.firstContentImage} />
-        </div>
+          ))}
+        </Carousel>
       </div>
     </section>
   );

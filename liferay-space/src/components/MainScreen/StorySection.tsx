@@ -16,7 +16,7 @@ export const StorySection = () => {
           </p>
         </div>
         <div className={styles.storySectionImageWrapper}>
-          <img src={picnicImage} alt="Mesas compartilhadas" className={styles.storySectionImage} />
+          <img src={picnicImage} alt="Mesas compartilhadas que inspiram a colaboração na Liferay" className={styles.storySectionImage} />
         </div>
       </div>
     </section>
