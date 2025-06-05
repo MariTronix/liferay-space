@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Header.module.css';
+import { useNavigate } from 'react-router-dom';
 
 // VERIFIQUE: Estes caminhos estão 100% corretos no seu projeto?
 import logoLiferayPath from '../assets/imgLogos/liferay-logo.png';
@@ -11,11 +12,16 @@ export function Header() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  
+  const navigate = useNavigate();
+  const MainPage = () => {
+        navigate('/'); // Rota interna
+    };
 
   return (
     <header className={styles.header}>
       <div className={styles.lowerHeader}>
-        <button type="button" className={styles.logoButton}>
+        <button type="button" className={styles.logoButton} onClick={MainPage}>
           <img src={logoLiferayPath} alt="Liferay Logo" className={styles.logoImage} />
         </button>
         
