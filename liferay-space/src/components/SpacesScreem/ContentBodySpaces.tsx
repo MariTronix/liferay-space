@@ -26,7 +26,7 @@ export const ContentBodySpaces = () =>{
       name: "Auditório",
       description: "Nosso maior espaço para eventos, perfeito para palestras, conferências e treinamentos. Ambiente amplo com iluminação natural.",
       capacity: 180,
-      resources: ["TV", "Wi-fi", "Ar-condicionado", "Som"],
+      resources: ["Cabo HDMI", "Eqp. de som", "Telão LED", "Microfones"],
     },
     {
       id:2,
@@ -34,7 +34,7 @@ export const ContentBodySpaces = () =>{
       name: "Arco-íris",
       description: "Sala de reunião para grupos pequenos, ideal para reuniões remotas ou sessões rápidas com sua equipe.",
       capacity: 6,
-      resources: ["TV", "Wi-fi", "Ar-condicionado", "Som"],
+      resources: ["TV", "cabo HDMI", "Eqp. de Transmissão"],
     },
     {
       id:3,
@@ -42,7 +42,7 @@ export const ContentBodySpaces = () =>{
       name: "Elementos",
       description: "Sala de reunião ampla, com mesas e cadeiras que podem ser dispostas em formato auditório, escolar ou espinha de peixe. Iluminação natural com vista para o Capibaribe.",
       capacity: 25,
-      resources: ["TV", "Wi-fi", "Ar-condicionado", "Som"],
+      resources: ["TV", "cabo HDMI", "Eqp. de Transmissão"],
     },
     {
       id:4,
@@ -50,7 +50,7 @@ export const ContentBodySpaces = () =>{
       name: "Jogos",
       description: "Espaço multiuso com cadeiras que podem ser dispostas em formato auditório ou escolar. Perfeito para palestras de médio porte ou mesas redondas.",
       capacity: 45,
-      resources: ["TV", "Wi-fi", "Ar-condicionado", "Som"],
+      resources: ["TV", "cabo HDMI", "Eqp. de Transmissão"],
     },
     {
       id:5,
@@ -58,7 +58,7 @@ export const ContentBodySpaces = () =>{
       name: "Joker",
       description: "Sala de reunião para grupos pequenos, ideal para reuniões remotas ou sessões rápidas com sua equipe.",
       capacity: 5,
-      resources: ["TV", "Wi-fi", "Ar-condicionado", "Som"],
+      resources: ["TV", "cabo HDMI", "Eqp. de Transmissão"],
     },
     {
       id:6,
@@ -66,7 +66,7 @@ export const ContentBodySpaces = () =>{
       name: "Montanha",
       description: "Sala de reunião para grupos pequenos, ideal para reuniões remotas ou sessões rápidas com sua equipe.",
       capacity: 5,
-      resources: ["TV", "Wi-fi", "Ar-condicionado", "Som"],
+      resources: ["TV", "cabo HDMI", "Eqp. de Transmissão"],
     },
     {
       id:7,
@@ -74,7 +74,7 @@ export const ContentBodySpaces = () =>{
       name: "Pangeia",
       description: "Sala de reunião para grupos, mesa em formato circular.",
       capacity: 10,
-      resources: ["TV", "Wi-fi", "Ar-condicionado", "Som"],
+      resources: ["TV", "cabo HDMI", "Eqp. de Transmissão"],
     },
     {
       id:8,
@@ -82,7 +82,7 @@ export const ContentBodySpaces = () =>{
       name: "Varanda",
       description: "Espaço ideal para eventos como coquetéis e confraternizações, com vista privilegiada do Recife Antigo, ao lado do Rio Capibaribe.",
       capacity: 400,
-      resources: ["TV", "Wi-fi", "Ar-condicionado", "Som"],
+      resources: ["Mesas de piquenique", "Sistema de som Integrado"],
     }
   ];
     return(
@@ -95,6 +95,7 @@ export const ContentBodySpaces = () =>{
                   name={rooms.name}
                   description={rooms.description}
                   capacity={rooms.capacity}
+                  resources={rooms.resources}
                 />
 
               );

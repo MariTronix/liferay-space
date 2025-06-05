@@ -10,10 +10,11 @@ interface RoomProps {
   name: string;
   description: string;
   capacity: number;
+  resources: string[];
 }
 
 
-export const Room = ({img, name, description, capacity}: RoomProps) => {
+export const Room = ({img, name, description, capacity, resources}: RoomProps) => {
       const navigate = useNavigate();
       const formPage = () => {
         navigate('/forms'); // Rota interna
@@ -32,18 +33,21 @@ export const Room = ({img, name, description, capacity}: RoomProps) => {
           ))}
         </Swiper>
           <div className={styles.roomDivSuport}>
-          <h1>{name}</h1>
+            <h1>{name}</h1>
           </div>
           <p className={styles.roomDescription}>{description}</p>
-          <div className={styles.roomDivSuport}>
-          <p><span><FaUser /></span> Capacidade: {capacity} Pessoas</p>
-          </div>
-          <div className={styles.roomDivSuport}>
-          <h4>Recursos</h4>
-          </div>
+          
           {/*Lembrete:  colocar recursos!!!!! */}
-          <div className={styles.roomDivButtons}>
-            <button className={styles.roomReserve} onClick={formPage}>Reservar <span><FaLongArrowAltRight/></span> </button>
+          <div className={styles.roomDivFooter}>
+            <div className={styles.roomDivSuport}>
+              <p><span><FaUser /></span> Capacidade: {capacity} Pessoas</p>
+            </div>
+            <div className={styles.roomResources}>
+                {resources.map((nome) => (
+                <p>{nome}</p> 
+             ))}
+            </div>
+            <button className={styles.roomReserve} onClick={formPage}>Reservar <span><FaLongArrowAltRight/></span></button>
           </div>
         </div>
       );
