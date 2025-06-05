@@ -8,12 +8,12 @@ export default defineConfig({
     port: 8080,
   },
   plugins: [react()],
-  css: {
-    postcss: './postcss.config.mjs' // ou .cjs se escolheu a opção 2
+   css: {
+    postcss: './postcss.config.mjs'
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(new URL('.', import.meta.url).pathname, './src'),
     },
   },
 });
