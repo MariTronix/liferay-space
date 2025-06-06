@@ -1,64 +1,123 @@
 .storySection {
-  border-radius: 20px;
-  color: white;
+  border-radius: 20px; 
   width: 100%;
-  padding: 0 1rem;
+  padding: 4rem 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
 }
 
 .storySectionContent {
   display: flex;
-  max-width: 100rem;
+  max-width: 100rem; 
   width: 100%;
-  gap: 40px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  gap: 40px; 
+  flex-wrap: wrap; 
+  align-items: center; 
+  justify-content: space-between; 
 }
 
 .storySectionTextBlock {
-  flex: 1 1 400px;
+  flex: 1 1 400px; 
+  color: var(--blue-d2, #1e3a8a); 
 }
 
 .storySectionTitle {
   font-size: 3rem;
-  line-height: 1.3;
-  margin-bottom: 20px;
-  color: var(--blue-d2);
+  line-height: 1.25;
+  margin-bottom: 1.5rem; 
+  color: var(--blue-d2, #1e3a8a); 
 }
 
 .storySectionSimples {
-  font-size: 2.4rem;
-  color: var(--blue-d2);
+  font-size: 0.8em;
 }
 
 .storySectionIdeias {
-  font-size: 3.1rem;
-  color: var(--blue-d2);
+  font-size: 1.05em;
 }
 
 .storySectionParagraph {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  margin: 1rem;
-  color: var(--blue-d2);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin: 1rem 0;
+  color: var(--blue-d2, #1e3a8a);
 }
 
 .storySectionImageWrapper {
-  flex: 1 1 400px;
+  flex: 1 1 400px; 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .storySectionImage {
-  width: 42rem;
+
+  max-width: 100%; 
+  height: auto;   
   border-radius: 16px;
-  box-shadow: 12px 12px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+  display: block; 
+}
+
+@media (max-width: 992px) {
+  .storySection {
+    padding: 3rem 1.5rem;
+  }
+  .storySectionContent {
+    gap: 30px; 
+    justify-content: center; 
+  }
+  .storySectionTitle {
+    font-size: 2.5rem; 
+  }
+
+  .storySectionParagraph {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .storySection {
+    padding: 2.5rem 1rem;
+  }
+  .storySectionContent {
+    flex-direction: column; 
+    text-align: center; 
+    gap: 25px;
+  }
+  .storySectionTextBlock {
+    order: 2;
+    width: 100%; 
+  }
+  .storySectionImageWrapper {
+    order: 1; 
+    width: 100%;
+    margin-bottom: 0; 
+  }
+  .storySectionTitle {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+  .storySectionParagraph {
+    font-size: 1rem;
+    margin: 1rem auto; 
+    max-width: 95%; 
+  }
+}
+
+
+@media (max-width: 480px) {
+  .storySection {
+    padding: 2rem 1rem;
+  }
+  .storySectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .storySectionParagraph {
+    font-size: 0.95rem;
+  }
 }

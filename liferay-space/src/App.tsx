@@ -2,10 +2,9 @@ import { Routes, Route } from 'react-router-dom';
 import {ReservationsProvider} from './contexts/ReservationsContext';
 import { Home } from './HomePage.tsx';
 import { SpacesPage } from './SpacesPage.tsx';  
-import { ReservationForm } from '@/formulario/reservationforms';
+import { ReservationForm } from './formulario/reservationforms';
 import Index from './pages/Index.tsx'
 import './App.css';
-import styles from './App.module.css';
 import Calendar from './pages/Calendar.tsx'
 import Requests from './pages/Requests.tsx';
 import Reports from './pages/Reports.tsx';
