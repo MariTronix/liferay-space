@@ -35,7 +35,10 @@
     "recharts": "^2.15.3",
     "swiper": "^11.2.6",
     "tailwind-merge": "^3.3.0",
-    "zod": "^3.24.2"
+    "zod": "^3.24.2",
+    "@vitejs/plugin-react-swc": "^3.10.1",
+    "typescript": "~5.7.2",
+    "vite": "^6.3.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
@@ -50,6 +53,8 @@
     "globals": "^15.15.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.7",
+    
     "typescript-eslint": "^8.24.1"
+    
   }
 }
